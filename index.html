@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-ool: Apprenez le C en vous amusant!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>C-ool: Apprenez le C en vous amusant!</h1>
+        <p>Devenez un as de la programmation, un binaire à la fois!</p>
+        <div class="mascot"></div>
+    </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#conditions">Conditions</a></li>
+            <li><a href="#boucles">Boucles</a></li>
+            <li><a href="#fonctions">Fonctions</a></li>
+            <li><a href="#pointeurs">Pointeurs</a></li>
+            <li><a href="#structures">Structures</a></li>
+            <li><a href="#exercice">Exercices</a></li>
+            <li><a href="#corrige">Corrig&eacute;s</a></li>
+            <li><a href="video.html">Videos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction" class="lesson-card">
+            <h2>Introduction au C: Le langage qui a du caractère!</h2>
+            <p>Bienvenue dans le monde merveilleux du C, où les accolades sont reines et les points-virgules sont vos meilleurs amis!</p>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    printf("Hello, C-ool World!\n");
+                    return 0;
+                }
+            </div>
+            <p>Ce petit programme est comme un "Bonjour" en langage C. Il dit "Hello" au monde entier!</p>
+            <a href="introduction.html" class="btn" data-action="start-intro">Commencer l'aventure</a>
+        </section>
+
+        <!-- Les autres sections restent identiques, sauf pour l'ajout de l'attribut data-action sur les boutons -->
+        <section id="variables" class="lesson-card">
+            <h2>Jouer avec les variables en C : Une introduction à la magie des données
+            </h2>
+            <p>Les variables sont comme des boîtes où vous pouvez stocker des informations. En C, il existe différents types de variables selon le type de données que vous voulez stocker : int pour les nombres entiers, float pour les nombres décimaux, char pour les caractères, etc.
+            </p>
+            <p>Exemple de code utilisant des variables :</p>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+                int main() {
+                    int age = 20;         // Variable entière
+                    float taille = 1.75;  // Variable flottante
+                    char initiale = 'P';  // Variable de type caractère
+                
+                    printf("J'ai %d ans, ma taille est %.2f mètres et mon initiale est %c.\n", age, taille, initiale);
+                    return 0;
+                }
+                
+            </div>
+            <p><strong>Explication du programme :</strong>
+
+                int age = 20; → Cette ligne déclare une variable de type entier et lui assigne la valeur 20.<br>
+                
+                float taille = 1.75; → Cette ligne déclare une variable pour stocker un nombre décimal, ici 1.75.<br>
+                
+                char initiale = 'P'; → Cette ligne stocke un caractère, ici la lettre 'P'.<br>
+                
+                
+                Lorsque vous exécutez ce programme, vous verrez le message suivant :<br>
+                
+                J'ai 20 ans, ma taille est 1.75 mètres et mon initiale est P.<br>
+                
+                Maintenant, à vous de jouer avec les variables et d'expérimenter en changeant leurs valeurs !
+                </p>
+            <p>Ce petit exemple vous permet de comprendre les bases des variables en C et de jouer avec différentes valeurs pour voir les résultats. Vous pouvez personnaliser cet exemple et y ajouter d'autres types de variables pour mieux comprendre leur utilisation.</p>
+            <a href="var.html" class="btn" data-action="play-variables">Jouer avec les variables</a>
+        </section>
+
+        <section id="conditions" class="lesson-card">
+            <h2>Explorer les chemins : Le pouvoir des décisions</h2>
+            <p>Les programmes ne suivent pas toujours un chemin linéaire. Parfois, ils doivent prendre des décisions en fonction de certaines conditions. C'est là que les conditions entrent en jeu. Avec elles, vous pouvez contrôler le flux de votre programme.
+            </p>
+            <p><strong>Exemple de code avec des conditions :</strong></p>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int age;
+                
+                    printf("Entrez votre âge: ");
+                    scanf("%d", &age);
+                
+                    if (age < 18) {
+                        printf("Vous êtes mineur.\n");
+                    } else if (age >= 18 && age < 60) {
+                        printf("Vous êtes un adulte.\n");
+                    } else {
+                        printf("Vous êtes senior.\n");
+                    }
+                    
+                    return 0;
+                }
+                
+            </div>
+            <strong>Explication du code</strong>
+            <p>scanf("%d", &age); → Cette ligne permet à l'utilisateur de saisir son âge, qui sera stocké dans la variable age.</p>
+
+                <p>if (age < 18) → Si l'âge est inférieur à 18, le programme affiche "Vous êtes mineur".</p>
+                
+                <p>else if (age >= 18 && age < 60) → Si l'âge est compris entre 18 et 59, le programme affiche "Vous êtes un adulte".</p>
+                
+                <p>else → Si l'âge est de 60 ou plus, le programme affiche "Vous êtes senior".</p>
+                
+            <p>Quand vous exécutez ce programme, le résultat dépend de l'âge que vous entrez :</p>
+
+                <p>Si vous entrez 16, le message sera : "Vous êtes mineur."</p>
+                
+                <p>Si vous entrez 30, le message sera : "Vous êtes un adulte."</p>
+                
+                <p>Si vous entrez 65, le message sera : "Vous êtes senior."
+            </p><br>
+            <p>En fonction des décisions que prend le programme, il emprunte différents chemins. Vous pouvez explorer ces chemins en modifiant les conditions ou les valeurs des variables pour voir comment cela affecte l'exécution du programme.
+            </p>
+            <p>Cette approche vous montre comment un programme peut avoir des comportements différents en fonction des conditions définies. Vous pouvez maintenant explorer différents chemins en jouant avec les conditions dans vos propres programmes.</p>
+            <a href="cond.html" class="btn" data-action="explore-conditions">Explorer les chemins</a>
+        </section>
+
+        <section id="boucles" class="lesson-card">
+            <h2>Faire un tour de boucle : Répéter pour mieux apprendre
+            </h2>
+            <p>Les boucles sont un outil puissant dans le langage C. Elles permettent de répéter des actions sans avoir à écrire plusieurs fois le même code. Il existe trois types de boucles principales en C : for, while, et do-while.
+            </p>
+            <strong>Exemple avec une boucle for :
+
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int i;
+                
+                    // Boucle for qui s'exécute 5 fois
+                    for (i = 1; i <= 5; i++) {
+                        printf("Ceci est le tour numéro %d de la boucle.\n", i);
+                    }
+                
+                    return 0;
+                }
+                
+            </div>
+            <strong>Explication du programme :
+            </strong>
+            <p>for (i = 1; i <= 5; i++) → Cette boucle commence avec i égal à 1 et s'exécute tant que i est inférieur ou égal à 5. À chaque tour, i est incrémenté de 1.
+            </p>
+            <p>printf("Ceci est le tour numéro %d de la boucle.\n", i); → Cette ligne affiche le numéro du tour actuel de la boucle.
+
+            </p>
+            <p>Quand vous exécutez ce programme, vous verrez :
+            </p>
+            <p>Ceci est le tour numéro 1 de la boucle.
+                Ceci est le tour numéro 2 de la boucle.
+                Ceci est le tour numéro 3 de la boucle.
+                Ceci est le tour numéro 4 de la boucle.
+                Ceci est le tour numéro 5 de la boucle.
+                </p>
+                <strong>Exemple avec une boucle while :</strong>
+                <div class="code-example">
+                    #include &lt;stdio.h&gt;
+    
+                    int main() {
+                        int compteur = 1;
+                    
+                        // Boucle while qui s'exécute tant que compteur est inférieur ou égal à 3
+                        while (compteur <= 3) {
+                            printf("Tour de boucle %d avec while.\n", compteur);
+                            compteur++;
+                        }
+                    
+                        return 0;
+                    }
+                    
+                    
+                </div>
+            <strong>Explication du programme :
+            </strong>
+            <p>while (compteur <= 3) → Tant que compteur est inférieur ou égal à 3, la boucle continue de s'exécuter.
+            </p>
+            <p>compteur++ → Incrémente la valeur de compteur de 1 à chaque tour.
+            </p>
+            <p>Ce programme affichera :
+            </p>
+            <p>Tour de boucle 1 avec while.
+                Tour de boucle 2 avec while.
+                Tour de boucle 3 avec while.
+                </p>
+            <p>Les boucles permettent de répéter des actions sans avoir à écrire plusieurs lignes de code. Que ce soit avec for ou while, elles sont essentielles pour rendre vos programmes plus efficaces et plus dynamiques. N'hésitez pas à faire un tour de boucle dans vos propres programmes pour voir comment cela fonctionne !
+
+            </p>
+            <p>Avec cet exemple, vous comprenez comment les boucles peuvent être utilisées pour répéter des actions automatiquement. Testez différents types de boucles et voyez comment elles affectent le comportement de votre programme.</p>
+            <a href="boucle.html" class="btn" data-action="try-loops">Faire un tour de boucle</a>
+        </section>
+
+        <section id="fonctions" class="lesson-card">
+            <h2>Créer votre super-héros : Donnez-lui des pouvoirs avec les fonctions</h2>
+            <p>Les fonctions en C sont des blocs de code que vous pouvez appeler pour exécuter une tâche spécifique. Elles sont utiles pour éviter la répétition de code et rendre un programme plus lisible et facile à maintenir.
+            </p>
+            <strong>Exemple de code avec des fonctions pour un super-héros :
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                // Fonction pour afficher le nom du super-héros
+void afficherNom(char nom[]) {
+    printf("Nom du super-héros: %s\n", nom);
+}
+
+// Fonction pour afficher le pouvoir du super-héros
+void afficherPouvoir(char pouvoir[]) {
+    printf("Pouvoir: %s\n", pouvoir);
+}
+
+// Fonction pour afficher la force du super-héros
+void afficherForce(int force) {
+    printf("Force: %d\n", force);
+}
+
+int main() {
+    char nom[] = "Super Programmeur";
+    char pouvoir[] = "Compiler à la vitesse de la lumière";
+    int force = 9001;
+
+    // Appels des fonctions
+    afficherNom(nom);
+    afficherPouvoir(pouvoir);
+    afficherForce(force);
+
+    return 0;
+}
+
+            </div>
+            <strong>Explication du programme :
+            </strong>
+            <p>void afficherNom(char nom[]) → Cette fonction prend un nom en argument et l'affiche. Le mot-clé void signifie que la fonction ne retourne aucune valeur.
+
+            </p>
+            <p>void afficherPouvoir(char pouvoir[]) → Une fonction similaire qui prend le pouvoir du super-héros et l'affiche.
+            </p>
+            <p>void afficherForce(int force) → Cette fonction prend un entier (le niveau de force) et l'affiche.
+            </p>
+            <p>Appel des fonctions dans main() → On appelle chaque fonction pour afficher les informations du super-héros.
+            </p>
+            <p>Lorsque vous exécutez ce programme, voici ce que vous verrez :</p>
+            <p>Nom du super-héros: Super Programmeur
+                Pouvoir: Compiler à la vitesse de la lumière
+                Force: 9001
+                </p>
+            <p><strong>Créez des super-pouvoirs réutilisables avec les fonctions</strong>
+            </p>
+            <p>Les fonctions permettent de diviser les tâches en petites parties réutilisables. Vous pouvez maintenant créer plusieurs fonctions pour ajouter d'autres capacités à votre super-héros, comme attaquer, défendre, ou utiliser un pouvoir spécial.
+            </p>
+            <strong>Exemple de fonction pour un super-pouvoir :
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+                void utiliserPouvoirSpecial() {
+                    printf("Le super-héros utilise son pouvoir spécial: Ultra Compilation!\n");
+                }
+            </div>   
+            <p>Vous pouvez appeler cette fonction n'importe où dans votre programme pour donner à votre super-héros des pouvoirs spéciaux.
+
+            </p>
+            <p>Les fonctions sont essentielles pour organiser le code et le rendre réutilisable. Avec ces exemples, vous savez maintenant comment donner à votre super-héros plusieurs capacités à travers des fonctions. N'hésitez pas à ajouter plus de pouvoirs et à jouer avec différentes fonctions pour rendre votre super-héros encore plus puissant !</p>
+            <p></p>
+            <a href="fonction.html" class="btn" data-action="create-function">Créer votre super-héros</a>
+        </section>
+
+        <section id="pointeurs" class="lesson-card">
+            <h2>Partir à l'aventure avec les pointeurs
+            </h2>
+            <p>Les pointeurs en C sont des variables qui stockent l'adresse d'une autre variable, plutôt que sa valeur. Avec les pointeurs, vous pouvez partir à l'aventure dans la mémoire de l'ordinateur, en accédant directement aux valeurs via leur adresse.
+            </p>
+            <strong>Exemple simple avec les pointeurs :
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int nombre = 42;
+                    int *pointeurNombre = &nombre; // Le pointeur pointe vers l'adresse de "nombre"
+                
+                    // Affichage des informations
+                    printf("Valeur de nombre: %d\n", nombre);
+                    printf("Adresse de nombre: %p\n", (void*)&nombre);
+                    printf("Valeur du pointeur: %p\n", (void*)pointeurNombre);
+                    printf("Valeur pointée par le pointeur: %d\n", *pointeurNombre);
+                
+                    return 0;
+                }
+                
+                
+            </div>
+            <strong>Explication du programme :
+            </strong>
+            <p>int nombre = 42; → Nous créons une variable nombre et lui assignons la valeur 42.
+
+            </p>
+            <p>*int pointeurNombre = &nombre; → Nous déclarons un pointeur pointeurNombre qui stocke l'adresse de la variable nombre (avec &nombre).
+            </p>
+            <p>%p → Utilisé pour afficher l'adresse mémoire, le format %p montre l'adresse hexadécimale où la variable est stockée.
+
+            </p>
+            <p>*pointeurNombre → En utilisant *, nous déréférençons le pointeur pour accéder à la valeur stockée à l'adresse.
+            </p>
+            <p>Quand vous exécutez ce programme, vous obtiendrez quelque chose comme :
+            </p>
+            <p>Valeur de nombre: 42
+               Valeur pointée par le pointeur: 42
+                </p>
+            <p>Ici, le pointeur pointeurNombre stocke l'adresse de la variable nombre, et en déréférençant ce pointeur avec *pointeurNombre, vous accédez à la valeur stockée à cette adresse.
+
+            </p>
+            <strong>Manipuler les valeurs avec les pointeurs</strong>
+            <p>Les pointeurs ne servent pas seulement à consulter la valeur à une adresse mémoire, mais vous pouvez aussi modifier la valeur pointée.
+
+            </p>
+            <strong>Exemple de modification via un pointeur :
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+
+                int main() {
+                    int nombre = 100;
+                    int *pointeurNombre = &nombre;
+                
+                    printf("Avant la modification: %d\n", nombre);
+                
+                    // Modification de la valeur de "nombre" via le pointeur
+                    *pointeurNombre = 200;
+                
+                    printf("Après la modification via le pointeur: %d\n", nombre);
+                
+                    return 0;
+                }
+             </div>
+             <strong>Explication :
+            </strong>                
+            <p>Avant la modification: Le programme affiche la valeur initiale de nombre, soit 100.
+
+            </p>
+            <p>*pointeurNombre = 200; → Ici, nous utilisons le pointeur pour changer la valeur de nombre à 200.
+            </p>
+            <strong>Résultat à l'exécution :
+            </strong>
+            <p>Avant la modification: 100<br>
+                Après la modification via le pointeur: 200
+                
+                </p>
+            <p>Cela montre comment vous pouvez non seulement accéder, mais aussi modifier une variable en utilisant son pointeur.
+
+            </p>
+            <strong>Partir à l’aventure dans la mémoire avec les pointeurs
+            </strong>
+            <p>Les pointeurs vous permettent d’explorer la mémoire, de manipuler les valeurs et de gérer des structures de données complexes. Vous pouvez également les utiliser pour gérer des tableaux, des chaînes de caractères, et bien plus encore. Ils sont un élément clé du langage C, et apprendre à les utiliser efficacement vous permettra de vraiment maîtriser la gestion de la mémoire.
+            </p>
+            <p>Avec cet exemple de pointeurs, vous partez à l'aventure en explorant les concepts fondamentaux qui vous permettent d'aller au-delà des variables simples. Grâce aux pointeurs, vous contrôlez la mémoire à un niveau plus profond et gagnez en puissance et en flexibilité dans vos programmes en C.</p>
+            <a href="pointeur.html" class="btn" data-action="explore-pointers">Partir à l'aventure</a>
+        </section>
+
+        <section id="structures" class="lesson-card">
+            <h2>Construire votre structure : Organiser les données en un tout cohérent
+            </h2>
+            <p>En C, une structure vous permet de regrouper plusieurs types de données sous une seule entité. Cela vous permet de modéliser des objets plus complexes en rassemblant des attributs de différents types (entiers, chaînes de caractères, etc.) sous un même nom.
+            </p>
+            <strong>Exemple : Définir et utiliser une structure
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+                #include &lt;string.h&gt;
+
+                // Définition de la structure "SuperHeros"
+struct SuperHeros {
+    char nom[50];
+    char pouvoir[50];
+    int force;
+};
+
+int main() {
+    // Déclaration et initialisation d'une variable de type "SuperHeros"
+    struct SuperHeros heros;
+
+    // Affectation des valeurs aux membres de la structure
+    strcpy(heros.nom, "Captain C");
+    strcpy(heros.pouvoir, "Compiler instantanément");
+    heros.force = 9000;
+
+    // Affichage des informations du super-héros
+    printf("Nom: %s\n", heros.nom);
+    printf("Pouvoir: %s\n", heros.pouvoir);
+    printf("Force: %d\n", heros.force);
+
+    return 0;
+}
+
+            </div>
+            <strong>Explication du programme :
+            </strong>
+            <p>struct SuperHeros → Nous définissons une structure nommée SuperHeros qui contient trois membres : un nom (chaîne de caractères), un pouvoir (chaîne de caractères), et une force (entier).
+            </p>
+            <p>struct SuperHeros heros; → Nous déclarons une variable heros de type SuperHeros</p>
+            <p>strcpy() → Cette fonction copie une chaîne de caractères dans un tableau. Ici, nous l'utilisons pour affecter un nom et un pouvoir à notre super-héros.
+            </p>
+            <p>Nous affichons ensuite les valeurs stockées dans les membres de la structure</p>
+            <strong>Lors de l'exécution, le programme affichera :
+
+            </strong>
+            <p>Nom: Captain C<br>
+                Pouvoir: Compiler instantanément<br>
+                Force: 9000
+                </p>
+                <strong>Pourquoi utiliser des structures ?
+                </strong>
+            <p>Les structures permettent de regrouper des données logiquement liées sous une seule unité. Par exemple, dans le cadre d'un programme pour gérer des personnages ou des super-héros, une structure permet de rassembler toutes les informations importantes sur chaque personnage en un seul objet.
+            </p>
+            <strong>Exemple d'utilisation multiple avec un tableau de structures :
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+                #include &lt;string.h&gt;
+
+                struct SuperHeros {
+                    char nom[50];
+                    char pouvoir[50];
+                    int force;
+                };
+                
+                int main() {
+                    // Déclaration et initialisation de plusieurs super-héros
+                    struct SuperHeros heros1 = {"Captain C", "Compiler instantanément", 9000};
+                    struct SuperHeros heros2 = {"Bug Hunter", "Chasser les bugs sans relâche", 8500};
+                    struct SuperHeros heros3 = {"Memory Master", "Gérer la mémoire à la perfection", 9200};
+                
+                    // Affichage des informations de chaque super-héros
+                    printf("Nom: %s, Pouvoir: %s, Force: %d\n", heros1.nom, heros1.pouvoir, heros1.force);
+                    printf("Nom: %s, Pouvoir: %s, Force: %d\n", heros2.nom, heros2.pouvoir, heros2.force);
+                    printf("Nom: %s, Pouvoir: %s, Force: %d\n", heros3.nom, heros3.pouvoir, heros3.force);
+                
+                    return 0;
+                }
+                
+            </div>
+            <strong>Explication :
+            </strong>   
+            <p>Tableau de super-héros : Nous avons ici trois variables de type SuperHeros, chacune représentant un super-héros différent.
+            </p>
+            <p>Nous utilisons la même structure pour définir les propriétés de chaque personnage, puis nous affichons leurs informations.
+
+            </p>
+            <strong>Le résultat sera :
+            </strong>
+            <p>Nom: Captain C, Pouvoir: Compiler instantanément, Force: 9000<br>
+                Nom: Bug Hunter, Pouvoir: Chasser les bugs sans relâche, Force: 8500<br>
+                Nom: Memory Master, Pouvoir: Gérer la mémoire à la perfection, Force: 9200
+                
+                </p>
+                <strong>Structures imbriquées
+                </strong>
+            <p>Les structures peuvent aussi être imbriquées, c'est-à-dire qu'une structure peut contenir une autre structure en tant que membre. Cela est utile pour modéliser des objets plus complexes.
+            </p>
+            <strong>Exemple : Super-héros avec une structure d'adresse
+
+            </strong>
+            <div class="code-example">
+                #include &lt;stdio.h&gt;
+                #include &lt;string.h&gt;
+
+                // Définition de la structure pour l'adresse
+struct Adresse {
+    char ville[50];
+    char pays[50];
+};
+
+// Définition de la structure SuperHeros avec une structure imbriquée
+struct SuperHeros {
+    char nom[50];
+    char pouvoir[50];
+    int force;
+    struct Adresse adresse;
+};
+
+int main() {
+    // Déclaration et initialisation d'un super-héros
+    struct SuperHeros heros;
+
+    // Affectation des valeurs aux membres de la structure
+    strcpy(heros.nom, "Captain C");
+    strcpy(heros.pouvoir, "Compiler instantanément");
+    heros.force = 9000;
+
+    // Affectation de l'adresse
+    strcpy(heros.adresse.ville, "CodeCity");
+    strcpy(heros.adresse.pays, "Cyberspace");
+
+    // Affichage des informations du super-héros
+    printf("Nom: %s\n", heros.nom);
+    printf("Pouvoir: %s\n", heros.pouvoir);
+    printf("Force: %d\n", heros.force);
+    printf("Ville: %s\n", heros.adresse.ville);
+    printf("Pays: %s\n", heros.adresse.pays);
+
+    return 0;
+}
+</div>
+            <strong>Explication :
+            </strong>
+            <p>struct Adresse → Une structure pour stocker des informations d'adresse.
+            </p>
+            <p>struct SuperHeros → Cette structure contient une autre structure Adresse pour stocker les informations d'adresse du super-héros.
+
+            </p>
+            <p>Le programme affiche les informations du super-héros et son adresse.
+
+            </p>
+            <p>Construire votre structure<br>
+             Grâce aux structures, vous pouvez organiser les données de manière plus complexe et plus logique. Cela permet de regrouper plusieurs informations sous un même objet, ce qui simplifie la gestion des données dans vos programmes. C'est une construction essentielle dans C qui ouvre la voie à des programmes mieux structurés et plus modulaires.</p>
+            <a href="structure.html" class="btn" data-action="build-structure">Construire votre structure</a>
+        </section>
+
+        <section id="exercice" class="lesson-card"></section>
+            <h2>Quelques exercices pour mieux apprendre</h2>
+            <p>Rien de mieux que s'exercer apr&egrave;s les cours</p>
+       
+            <a href="exercice.html" class="btn" data-action="start-intro">Exercices</a>
+        </section>
+
+        <section id="corrige" class="lesson-card"></section>
+            <h2>Verifiez vos reponses</h2>
+            <p>Après avoir traiter les exercices, Verifiez si avez trouver les bonnes r&eacute;ponses !</p>
+       
+            <a href="corrige.html" class="btn" data-action="start-intro">Corrections</a>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Ressources pour continuer votre aventure en programmation</h3>
+        <div class="resources">
+            <div class="resource-category">
+                <h4>Sites pour apprendre le C</h4>
+                <ul>
+                    <li><a href="https://www.learn-c.org/" target="_blank">Learn-C.org</a></li>
+                    <li><a href="https://www.w3schools.com/c/" target="_blank">W3Schools C Tutorial</a></li>
+                    <li><a href="https://www.tutorialspoint.com/cprogramming/" target="_blank">TutorialsPoint C Programming</a></li>
+                </ul>
+            </div>
+            <div class="resource-category">
+                <h4>Autres langages de programmation</h4>
+                <ul>
+                    <li><a href="https://www.python.org/" target="_blank">Python</a></li>
+                    <li><a href="https://www.javascript.com/" target="_blank">JavaScript</a></li>
+                    <li><a href="https://www.java.com/" target="_blank">Java</a></li>
+                </ul>
+            </div>
+            <div class="resource-category">
+                <h4>Chaînes YouTube recommandées</h4>
+                <ul>
+                    <li><a href="https://www.youtube.com/user/thenewboston" target="_blank">thenewboston</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g" target="_blank">Corey Schafer</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCxX9wt5FWQUAAz4UrysqK9A" target="_blank">CS Dojo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="creator-info">
+            <h4>À propos du créateur</h4>
+            <p>Ce site a été créé par Ousmane KONFE, étudiant en licence de technologie du génie informatique &agrave; l'universit&eacute; Aube Nouvelle (U-AUBEN). Passionné de technologie, Ousmane a conçu ce site pour aider les débutants à apprendre plus simplement le langage C. Son objectif est de rendre l'apprentissage de la programmation accessible et amusant pour tous.</p>
+        </div>
+        <p>&copy; 2024 C-ool: Apprenez le C en vous amusant! Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonCards = document.querySelectorAll('.lesson-card');
+            const navLinks = document.querySelectorAll('nav a');
+            const buttons = document.querySelectorAll('.btn');
+            const nav = document.getElementById('main-nav');
+            let lastScrollTop = 0;
+
+            lessonCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        card.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const action = button.getAttribute('data-action');
+                    handleButtonClick(action);
+                });
+            });
+
+            function handleButtonClick(action) {
+                switch(action) {
+                    case 'start-intro':
+                        alert("Bienvenue dans l'aventure C ! Commençons par les bases.");
+                        break;
+                    case 'play-variables':
+                        alert("Jouons avec les variables ! Essayez de déclarer différents types de variables.");
+                        break;
+                    case 'explore-conditions':
+                        alert("Explorons les conditions ! Pensez à des scénarios où vous pourriez utiliser if-else.");
+                        break;
+                    case 'try-loops':
+                        alert("Faisons un tour de boucle ! Combien de fois voulez-vous répéter une action ?");
+                        break;
+                    case 'create-function':
+                        alert("Créons une fonction super-héros ! Quel super-pouvoir voulez-vous lui donner ?");
+                        break;
+                    case 'explore-pointers':
+                        alert("Partons à l'aventure avec les pointeurs ! Attention où vous pointez !");
+                        break;
+                    case 'build-structure':
+                        alert("Construisons une structure ! Pensez à un objet du monde réel et ses caractéristiques.");
+                        break;
+                    default:
+                        alert("Action non reconnue. Veuillez réessayer.");
+                }
+            }
+
+            // Animation de la mascotte au survol
+            const mascot = document.querySelector('.mascot');
+            mascot.addEventListener('mouseover', () => {
+                mascot.style.animation = 'none';
+                mascot.offsetHeight; // Déclenche un reflow
+                mascot.style.animation = 'bounce 0.5s infinite';
+            });
+            mascot.addEventListener('mouseout', () => {
+                mascot.style.animation

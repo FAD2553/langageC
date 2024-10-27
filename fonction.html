@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer votre super-héros - C-ool</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Créer votre super-héros</h1>
+        <p>Donnez-lui des pouvoirs avec les fonctions en C</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#definition">Définition des fonctions</a></li>
+            <li><a href="#syntax">Syntaxe des fonctions</a></li>
+            <li><a href="#exemples">Exemples de fonctions</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Les fonctions en C sont des blocs de code qui effectuent des tâches spécifiques. Elles permettent de diviser un programme en sous-programmes, facilitant la réutilisation du code et la maintenance.</p>
+        </section>
+
+        <section id="definition">
+            <h2>Définition des fonctions</h2>
+            <p>Une fonction est un ensemble d'instructions qui peuvent être appelées à tout moment dans un programme. Les fonctions peuvent accepter des paramètres et retourner une valeur.</p>
+            <p>Exemples de types de fonctions :</p>
+            <ul>
+                <li>Fonctions sans retour ni paramètres</li>
+                <li>Fonctions avec retour et sans paramètres</li>
+                <li>Fonctions avec paramètres et retour</li>
+            </ul>
+        </section>
+
+        <section id="syntax">
+            <h2>Syntaxe des fonctions</h2>
+            <p>La syntaxe générale d'une fonction en C est la suivante :</p>
+            <div class="example">
+                <pre><code>
+type_de_retour nom_de_fonction(paramètres) {
+    // corps de la fonction
+}
+                </code></pre>
+            </div>
+            <p>Voici un exemple d'une fonction simple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int ajouter(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int resultat = ajouter(5, 3);
+    printf("Le résultat est : %d\n", resultat);
+    return 0;
+}
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples de fonctions</h2>
+            <p>Voici quelques exemples de fonctions courantes :</p>
+            <ul>
+                <li><strong>Fonction pour calculer la factorielle :</strong>
+                    <div class="example">
+                        <pre><code>
+int factorielle(int n) {
+    if (n <= 1) return 1;
+    return n * factorielle(n - 1);
+}
+                        </code></pre>
+                    </div>
+                </li>
+                <li><strong>Fonction pour vérifier si un nombre est pair :</strong>
+                    <div class="example">
+                        <pre><code>
+int estPair(int n) {
+    return n % 2 == 0;
+}
+                        </code></pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="quiz4.html" class="btn">Accéder aux Quiz</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 C-ool: Apprenez le C en vous amusant! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

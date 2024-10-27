@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prennez un chemin different - C-ool</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Expliquer les chemins</h1>
+        <p>Le pouvoir des décisions en C</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#if">Instruction if</a></li>
+            <li><a href="#switch">Instruction switch</a></li>
+            <li><a href="#exemples">Exemples</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Les structures de contrôle conditionnelles en C vous permettent de prendre des décisions dans votre code. Cela signifie que vous pouvez exécuter différentes instructions en fonction des conditions que vous spécifiez.</p>
+            <p>Les principales structures conditionnelles en C sont :</p>
+            <ul>
+                <li>Instruction <code>if</code></li>
+                <li>Instruction <code>else</code></li>
+                <li>Instruction <code>else if</code></li>
+                <li>Instruction <code>switch</code></li>
+            </ul>
+        </section>
+
+        <section id="if">
+            <h2>Instruction if</h2>
+            <p>L'instruction <code>if</code> permet d'exécuter un bloc de code si une condition est vraie. Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+int age = 18;
+
+if (age >= 18) {
+printf("Vous êtes majeur.\n");
+}
+return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, le message "Vous êtes majeur." s'affichera si la variable <code>age</code> est supérieure ou égale à 18.</p>
+        </section>
+
+        <section id="switch">
+            <h2>Instruction switch</h2>
+            <p>L'instruction <code>switch</code> est utilisée pour exécuter un ensemble d'instructions en fonction de la valeur d'une variable. Voici comment cela fonctionne :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+int jour = 3;
+
+switch (jour) {
+case 1:
+    printf("Lundi\n");
+    break;
+case 2:
+    printf("Mardi\n");
+    break;
+case 3:
+    printf("Mercredi\n");
+    break;
+default:
+    printf("Jour inconnu\n");
+}
+return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, le programme affichera "Mercredi" car la variable <code>jour</code> a la valeur 3.</p>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples de décisions</h2>
+            <p>Voici quelques exemples de décisions plus complexes que vous pouvez réaliser avec les instructions conditionnelles :</p>
+            <ul>
+                <li>Vérification de l'égalité de deux nombres.</li>
+                <li>Évaluation de l'état d'une variable booléenne.</li>
+                <li>Exécution d'actions différentes selon la valeur d'une variable.</li>
+            </ul>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+int a = 5, b = 10;
+
+if (a > b) {
+printf("a est plus grand que b.\n");
+} else if (a < b) {
+printf("a est plus petit que b.\n");
+} else {
+printf("a est égal à b.\n");
+}
+return 0;
+}
+                </code></pre>
+            </div>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="quiz2.html" class="btn">Aller aux Quizz</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Expliquer les chemins : Le pouvoir des décisions. Créé par Ousmane KONFE</p>
+    </footer>
+</body>
+</html>

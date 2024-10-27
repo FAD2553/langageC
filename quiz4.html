@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les fonctions en C</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #d1e7ff;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .next-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #28a745;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sur les fonctions en C</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="question"></div>
+        <div class="options"></div>
+        <div class="feedback"></div>
+        <button class="next-btn" style="display: none;">Question suivante</button>
+    </div>
+
+    <script>
+const questions = [
+    {
+        question: "Quelle est la syntaxe correcte pour déclarer une fonction en C ?",
+        options: ["void fonction() {}", "function void() {}", "def fonction() {}", "fonction void() {}"],
+        correct: 0
+    },
+    {
+        question: "Comment appelle-t-on une fonction qui ne renvoie aucune valeur ?",
+        options: ["int", "void", "null", "empty"],
+        correct: 1
+    },
+    {
+        question: "Quelle est la valeur de retour par défaut d'une fonction si aucune valeur n'est spécifiée ?",
+        options: ["0", "undefined", "null", "Aucune"],
+        correct: 3
+    },
+    {
+        question: "Quel mot-clé est utilisé pour passer des paramètres à une fonction ?",
+        options: ["pass", "param", "argument", "void"],
+        correct: 2
+    },
+    {
+        question: "Que fait l'instruction 'return' dans une fonction ?",
+        options: ["Termine le programme", "Sort de la fonction et renvoie une valeur", "Répète la fonction", "Aucune de ces réponses"],
+        correct: 1
+    },
+    {
+        question: "Comment définir une fonction qui prend deux entiers et retourne leur somme ?",
+        options: ["int somme(int a, int b) {}", "void somme(int a, int b) {}", "int somme(a, b) {}", "int somme(a: int, b: int) {}"],
+        correct: 0
+    },
+    {
+        question: "Comment déclare-t-on un prototype de fonction ?",
+        options: ["int fonction();", "fonction int();", "void fonction(int);", "fonction();"],
+        correct: 0
+    },
+    {
+        question: "Quelle est l'importance de déclarer un prototype de fonction avant de l'utiliser ?",
+        options: ["Aucune importance", "Cela permet de vérifier les types d'arguments", "Cela rend le code plus long", "Cela optimise le code"],
+        correct: 1
+    },
+    {
+        question: "Quel est le type de fonction qui appelle elle-même ?",
+        options: ["Fonction anonyme", "Fonction récursive", "Fonction statique", "Fonction dynamique"],
+        correct: 1
+    },
+    {
+        question: "Quelle est la sortie du code suivant : int f() { return 5; } int main() { printf('%d', f()); return 0; } ?",
+        options: ["0", "5", "Erreur de compilation", "undefined"],
+        correct: 1
+    }
+];
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionEl = document.querySelector('.question');
+        const optionsEl = document.querySelector('.options');
+        const feedbackEl = document.querySelector('.feedback');
+        const nextBtn = document.querySelector('.next-btn');
+        const progressBar = document.querySelector('.progress');
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index));
+                optionsEl.appendChild(button);
+            });
+            feedbackEl.textContent = '';
+            nextBtn.style.display = 'none';
+            updateProgressBar();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            if (index === questions[currentQuestion].correct) {
+                feedbackEl.textContent = "Correct ! Bien joué !";
+                feedbackEl.classList.add('correct');
+                feedbackEl.classList.remove('incorrect');
+                score++;
+            } else {
+                feedbackEl.textContent = "Incorrect. La bonne réponse était : " + questions[currentQuestion].options[questions[currentQuestion].correct];
+                feedbackEl.classList.add('incorrect');
+                feedbackEl.classList.remove('correct');
+            }
+            
+            nextBtn.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            questionEl.textContent = `Quiz terminé ! Votre score : ${score}/${questions.length}`;
+            optionsEl.innerHTML = '';
+            feedbackEl.textContent = score === questions.length ? "Parfait ! Vous maîtrisez les variables en C !" : "Continuez à pratiquer pour améliorer vos connaissances !";
+            nextBtn.style.display = 'none';
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        nextBtn.addEventListener('click', nextQuestion);
+        loadQuestion();
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structures en C - Construire votre structure</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Construire votre structure</h1>
+        <p>Organiser les données en un tout cohérent</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#definition">Définition des structures</a></li>
+            <li><a href="#declaration">Déclaration d'une structure</a></li>
+            <li><a href="#utilisation">Utilisation des structures</a></li>
+            <li><a href="#exemples">Exemples pratiques</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="definition">
+            <h2>Définition des structures</h2>
+            <p>Les structures en C sont des collections de variables de différents types regroupées sous un même nom. Elles permettent de créer des types de données personnalisés, facilitant ainsi l'organisation et la gestion des données complexes.</p>
+        </section>
+
+        <section id="declaration">
+            <h2>Déclaration d'une structure</h2>
+            <p>Pour déclarer une structure, utilisez le mot-clé <code>struct</code> suivi du nom de la structure et des membres entre accolades. Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+struct Personne {
+    char nom[50];
+    int age;
+    float taille;
+};
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, la structure <code>Personne</code> a trois membres : un tableau de caractères pour le nom, un entier pour l'âge et un flottant pour la taille.</p>
+        </section>
+
+        <section id="utilisation">
+            <h2>Utilisation des structures</h2>
+            <p>Après avoir déclaré une structure, vous pouvez créer des variables de ce type et accéder à leurs membres à l'aide de l'opérateur point (<code>.</code>). Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+struct Personne john;
+
+strcpy(john.nom, "John Doe");
+john.age = 30;
+john.taille = 1.75;
+
+printf("Nom: %s, Age: %d, Taille: %.2f\n", john.nom, john.age, john.taille);
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, nous créons une variable <code>john</code> de type <code>Personne</code> et initialisons ses membres.</p>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples pratiques</h2>
+            <p>Les structures sont souvent utilisées pour modéliser des données complexes. Par exemple, vous pouvez utiliser des structures pour représenter des livres, des étudiants ou des véhicules. Voici un exemple de structure pour un livre :</p>
+            <div class="example">
+                <pre><code>
+struct Livre {
+    char titre[100];
+    char auteur[50];
+    int annee;
+};
+
+struct Livre monLivre;
+
+strcpy(monLivre.titre, "Le Petit Prince");
+strcpy(monLivre.auteur, "Antoine de Saint-Exupéry");
+monLivre.annee = 1943;
+
+printf("Titre: %s, Auteur: %s, Année: %d\n", monLivre.titre, monLivre.auteur, monLivre.annee);
+                </code></pre>
+            </div>
+            <p>Les structures vous aident à garder vos données organisées et à faciliter leur manipulation dans votre programme.</p>
+            <a class="btn" href="quiz6.html">Faire un Quiz</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Structures en C : Organisez vos données efficacement! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

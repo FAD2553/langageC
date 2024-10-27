@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les conditions en C</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #d1e7ff;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .next-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #28a745;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sur les conditions en C</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="question"></div>
+        <div class="options"></div>
+        <div class="feedback"></div>
+        <button class="next-btn" style="display: none;">Question suivante</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Quelle est la syntaxe correcte pour une instruction 'if' en C ?",
+                options: ["if (x > 0) {}", "if x > 0 {}", "if (x > 0) then {}", "if x > 0 then {}"],
+                correct: 0
+            },
+            {
+                question: "Quel mot-clé est utilisé pour exécuter une instruction alternative ?",
+                options: ["else", "elif", "switch", "case"],
+                correct: 0
+            },
+            {
+                question: "Comment écrire une instruction 'switch' ?",
+                options: ["switch (x) {}", "switch x {}", "switch {x}", "case (x) {}"],
+                correct: 0
+            },
+            {
+                question: "Quelle est la valeur de 'x' après ce code : int x = 10; if (x < 5) { x = 20; } ?",
+                options: ["10", "5", "20", "0"],
+                correct: 0
+            },
+            {
+                question: "Quel est le bon opérateur pour une condition 'OU' logique ?",
+                options: ["||", "&&", "!", "=="],
+                correct: 0
+            },
+            {
+                question: "Quelle condition est vraie ?",
+                options: ["(5 > 3) && (2 < 4)", "(1 == 1) || (2 != 2)", "(3 > 5) && (2 == 2)", "(7 <= 4) || (8 > 10)"],
+                correct: 0
+            },
+            {
+                question: "Quel est le résultat de cette instruction : if (x == 5) { printf('Cinq'); } ?",
+                options: ["Affiche 'Cinq'", "Ne fait rien", "Affiche 'Cinq' plusieurs fois", "Produit une erreur"],
+                correct: 0
+            },
+            {
+                question: "Comment vérifier si 'x' est différent de 10 ?",
+                options: ["if (x != 10) {}", "if (x <> 10) {}", "if (x =! 10) {}", "if (x == 10)"],
+                correct: 0
+            },
+            {
+                question: "Quel mot-clé termine une instruction 'switch' ?",
+                options: ["break", "exit", "stop", "continue"],
+                correct: 0
+            },
+            {
+                question: "Quelle est la portée d'une instruction 'if' ?",
+                options: ["Dans tout le programme", "Dans le bloc suivant", "Dans la fonction actuelle", "Nulle part"],
+                correct: 1
+            }
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionEl = document.querySelector('.question');
+        const optionsEl = document.querySelector('.options');
+        const feedbackEl = document.querySelector('.feedback');
+        const nextBtn = document.querySelector('.next-btn');
+        const progressBar = document.querySelector('.progress');
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index));
+                optionsEl.appendChild(button);
+            });
+            feedbackEl.textContent = '';
+            nextBtn.style.display = 'none';
+            updateProgressBar();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            if (index === questions[currentQuestion].correct) {
+                feedbackEl.textContent = "Correct ! Bien joué !";
+                feedbackEl.classList.add('correct');
+                feedbackEl.classList.remove('incorrect');
+                score++;
+            } else {
+                feedbackEl.textContent = "Incorrect. La bonne réponse était : " + questions[currentQuestion].options[questions[currentQuestion].correct];
+                feedbackEl.classList.add('incorrect');
+                feedbackEl.classList.remove('correct');
+            }
+            
+            nextBtn.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            questionEl.textContent = `Quiz terminé ! Votre score : ${score}/${questions.length}`;
+            optionsEl.innerHTML = '';
+            feedbackEl.textContent = score === questions.length ? "Parfait ! Vous maîtrisez les variables en C !" : "Continuez à pratiquer pour améliorer vos connaissances !";
+            nextBtn.style.display = 'none';
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        nextBtn.addEventListener('click', nextQuestion);
+        loadQuestion();
+    </script>
+</body>
+</html>

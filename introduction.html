@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction au C - C-ool</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Introduction au C</h1>
+        <p>Découvrez les bases du langage C</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#histoire">Histoire du C</a></li>
+            <li><a href="#caracteristiques">Caractéristiques</a></li>
+            <li><a href="#structure">Structure d'un programme</a></li>
+            <li><a href="#compilation">Compilation et exécution</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="histoire">
+            <h2>Histoire du C</h2>
+            <p>Le langage C a été développé par Dennis Ritchie entre 1969 et 1973 aux Bell Labs. Initialement créé pour le développement du système d'exploitation UNIX, il est devenu l'un des langages de programmation les plus influents de l'histoire de l'informatique.</p>
+            <p>Points clés de l'histoire du C :</p>
+            <ul>
+                <li>1972 : Première version majeure du C</li>
+                <li>1978 : Publication du livre "The C Programming Language" par Brian Kernighan et Dennis Ritchie</li>
+                <li>1989 : Standardisation du C (ANSI C)</li>
+                <li>1999 : Publication du standard C99</li>
+            </ul>
+        </section>
+
+        <section id="caracteristiques">
+            <h2>Caractéristiques du C</h2>
+            <p>Le C est connu pour ses caractéristiques uniques qui en font un langage puissant et flexible :</p>
+            <ul>
+                <li>Langage de bas niveau avec des fonctionnalités de haut niveau</li>
+                <li>Portabilité sur différentes plateformes</li>
+                <li>Efficacité et performance</li>
+                <li>Contrôle direct de la mémoire</li>
+                <li>Syntaxe concise</li>
+            </ul>
+            <p>Ces caractéristiques font du C un excellent choix pour le développement système, les applications embarquées et les logiciels nécessitant des performances élevées.</p>
+        </section>
+
+        <section id="structure">
+            <h2>Structure d'un programme C</h2>
+            <p>Un programme C typique comprend les éléments suivants :</p>
+            <ul>
+                <li>Directives de préprocesseur (ex: #include)</li>
+                <li>Fonction main()</li>
+                <li>Déclarations de variables</li>
+                <li>Instructions</li>
+                <li>Commentaires</li>
+            </ul>
+            <p>Voici un exemple de programme C simple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    // Ceci est un commentaire
+    printf("Hello, World!\n");
+    return 0;
+}
+                </code></pre>
+            </div>
+            <button class="btn" onclick="explainCode()">Expliquer le code</button>
+        </section>
+
+        <section id="compilation">
+            <h2>Compilation et exécution</h2>
+            <p>Pour exécuter un programme C, vous devez d'abord le compiler. Voici les étapes de base :</p>
+            <p>Étapes pour compiler et exécuter un programme C avec CodeBlocks :
+            </p>
+            <ul>
+                <li>Télécharger et installer CodeBlocks (si vous ne l'avez pas déjà fait) : Vous pouvez télécharger le programme à partir de ce lien officiel.
+                </li>
+                <li> Créer un nouveau projet :
+
+                    Ouvrez CodeBlocks.
+                    
+                    Cliquez sur "Create a New Project" dans le menu principal.
+                    
+                    Sélectionnez "Console Application", puis cliquez sur "Go".
+                    
+                    Choisissez C comme langage et suivez les étapes pour nommer et enregistrer votre projet.
+                    </li>
+                <li>Écrire votre code C :
+
+                    Une fois le projet créé, ouvrez le fichier source par défaut, généralement nommé main.c.
+                    
+                    Remplacez le contenu par le code que vous souhaitez exécuter, ou bien écrivez un nouveau programme en C.
+                    </li>
+                    <li>Compiler le code :
+
+                        Dans la barre d'outils, cliquez sur "Build", ou appuyez sur F9. Cela va compiler votre programme. Si tout est correct, vous verrez un message indiquant "Build finished" dans la console en bas de l'interface de CodeBlocks.
+                        
+                        </li>
+                        <li>Exécuter le fichier compilé :
+
+                            Après la compilation, cliquez sur "Run" ou appuyez sur Ctrl + F10. Cela exécutera votre programme et affichera les résultats dans la console de CodeBlocks.
+                            
+                            
+                            </li>
+            </ul>
+            <p>Exemple :
+
+                Imaginons que vous ayez un programme C simple qui imprime "Hello, World!".
+                </p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+    }
+                        
+                </code></pre>
+            </div>
+            <p>Étape 1 : Vous placez ce code dans votre fichier source.</p><br>
+
+             <p>Étape 2 : Vous compilez en cliquant sur "Build".</p><br>
+                
+             <p>Étape 3 : Vous exécutez en cliquant sur "Run", et la console affichera :
+                
+                Hello, World!</p><br>
+                
+                <p>Avec CodeBlocks, toutes les étapes de compilation et d'exécution sont simplifiées grâce à l'interface graphique.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 C-ool: Apprenez le C en vous amusant! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        function explainCode() {
+            alert("Explication du code :\n\n" +
+                  "1. #include <stdio.h> : Inclut la bibliothèque standard d'entrée/sortie\n" +
+                  "2. int main() : Point d'entrée du programme\n" +
+                  "3. printf() : Fonction pour afficher du texte\n" +
+                  "4. return 0 : Indique que le programme s'est terminé avec succès");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

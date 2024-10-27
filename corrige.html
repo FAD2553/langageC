@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correction</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Correction</h1>
+        <p>Verifiez si vous avez les bonnes reponses</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Exercice 3.1</h2>
+            <p>a) <code>long</code> 12</p>
+            <p>b) <code>float</code> 11,75</p>
+            <p>c) <code>long</code> 4</p>
+            <p>d) <code>int</code> 0</p>
+            <p>e) <code>int</code> 1</p>
+            <p>f) <code>int</code> 1</p>
+            <p>g) <code>long</code> 5</p>
+            <p>h) <code>int</code> 1</p>
+            <p>i) <code>int</code> 0</p>
+            <p>j) <code>float</code> 1,75</p>
+            <p>k) <code>float</code> 8,75</p>
+        </section>
+        
+        <section>
+            <h2>Exercice 3.2</h2>
+            <p><code>z = a + b;</code></p>
+        </section>
+        
+        <section>
+            <h2>Exercice 3.3</h2>
+            <p><code>n ? (n > 0 ? 1 : -1) : 0</code></p>
+        </section>
+        
+        <section>
+            <h2>Exercice 3.4</h2>
+            <p><code>ou n > 0 ? 1 : (n ? -1 : 0)</code></p>
+            <p>A : <code>n = 10</code>  <code>p = 10</code>  <code>q = 10</code>  <code>r = 1</code></p>
+            <p>B : <code>n = 15</code>  <code>p = 10</code>  <code>q = 5</code></p>
+            <p>C : <code>n = 15</code>  <code>p = 11</code>  <code>q = 10</code></p>
+            <p>D : <code>n = 16</code>  <code>p = 11</code>  <code>q = 15</code></p>
+        </section>
+
+        <section>
+            <h2>Exercice 4.1</h2>
+            <p>A : <code>543</code> <code>34.567799</code></p>
+            <p>B : <code>543</code> <code>34.567799</code></p>
+            <p>C : <code>543</code> <code>34.567799</code></p>
+            <p>D : <code>34.568</code> <code>3.457e+01</code></p>
+            <p>E : <code>543</code></p>
+            <p>F : <code>34.56780</code></p>
+        </section>
+        
+        <section>
+            <h2>Exercice 4.2</h2>
+            <p>a) <code>n=12</code>, <code>p=45</code></p>
+            <p>b) <code>n=1234</code>, <code>p=56</code></p>
+            <p>c) <code>n=1234</code>, <code>p=56</code></p>
+            <p>d) <code>n=1</code>, <code>p=45</code></p>
+            <p>e) <code>n=4567</code>, <code>p=89</code></p>
+        </section>
+
+        <section>
+            <h2>Exercice 5.1</h2>
+            <p>a)</p>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        main()
+               n>0 ? 1 : (n ? -1 : 0)
+        {  int i, n, som ;
+           som = 0 ; 
+           i = 0 ;         /* ne pas oublier cette "initialisation" */
+         while (i<4)
+              { printf ("donnez un entier ") ;
+                scanf ("%d", &n) ;
+                som += n ;
+                i++ ;               /* ni cette "incrémentation" */
+              }
+           printf ("Somme : %d\n", som) ;
+        }
+            </code></pre>
+            <p>b)</p>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        main()
+        {  int i, n, som ;
+           som = 0 ; 
+           i = 0 ;          /* ne pas oublier cette "initialisation" */
+           do
+              { printf ("donnez un entier ") ;
+                scanf ("%d", &n) ;
+                som += n ;
+                i++ ;             /* ni cette "incrémentation" */
+              }
+           while (i<4) ;          /* attention, ici, toujours &lt;4 */
+           printf ("Somme : %d\n", som) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 5.2</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        main()
+        {  float note,       /* note courante */
+                 som,        /* somme des notes */
+                 moy ;       /* moyenne des notes */
+           int num ;         /* numéro note courante */
+           som=0 ; num=0 ;
+           while ( printf("note %d : ",num+1), 
+                   scanf ("%f", &note), note>=0 )
+              {  num++ ;
+                 som += note ;
+              }
+         if (num>0)
+              {  moy = som/num ;
+                 printf ("moyenne de ces %d notes : %5.2f", num, moy) ;
+              }
+            else printf ("--- aucune note fournie ---") ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 5.3</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        main()
+        {  int nbl ;      /* nombre de lignes */
+           int i, j ;
+           printf ("combien de lignes : ") ;
+           scanf ("%d", &nbl) ;
+           for (i=1 ; i&lt;=nbl ; i++)
+             { for (j=1 ; j&lt;=i ; j++)
+                  printf ("*") ;
+               printf ("\n") ;
+             }
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 5.4</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #include &lt;math.h&gt;
+        main()
+        {
+        }
+           int n,      /* nombre entier à examiner */
+               d ;     /* diviseur courant */
+           do
+              { printf ("donnez un entier supérieur à 2 : ") ;
+                scanf  ("%d", &n) ;
+              }
+           while (n&lt;=2) ;
+           d=2 ;
+           while ( (n%d) && (d&lt;=sqrt(n)) ) d++ ;
+           if (n%d) printf ("%d est premier", n) ;
+               else printf ("%d n’est pas premier", n) ;
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 5.5</h2>
+            <pre><code>
+        main()
+        {
+           int u1, u2, u3 ;          /* pour "parcourir" la suite */
+           int n ;                   /* rang du terme demandé */
+           int i ;                   /* compteur */
+           do
+             { printf ("rang du terme demandé (au moins 3) ? ") ;
+               scanf ("%d", &n) ;
+             }
+           while (n&lt;3) ;
+           u2 = u1 = 1 ;     /* les deux premiers termes */
+           i = 2 ;
+           while (i++ &lt; n)   /* attention, l’algorithme ne fonctionne */
+              { u3 = u1 + u2 ;  /*           que pour n > 2              */
+                u1 = u2 ;
+                u2 = u3 ;
+              }
+           printf ("Valeur du terme de rang %d : %d", n, u3) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 5.6</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #define NMAX 10                 /* nombre de valeurs */
+        main()
+        {   int i, j ;
+                 /* affichage ligne en-tête */
+            printf ("      I") ;
+            for (j=1 ; j&lt;=NMAX ; j++) printf ("%4d", j) ;
+            printf ("\n") ;
+            printf ("-------") ;
+            for (j=1 ; j&lt;=NMAX ; j++) printf ("----") ;
+            printf ("\n") ; 
+              /* affichage des différentes lignes */
+            for (i=1 ; i&lt;=NMAX ; i++)
+               { printf ("%4d  I", i) ;
+                 for (j=1 ; j&lt;=NMAX ; j++)
+                    printf ("%4d", i*j) ;
+                 printf ("\n") ;
+               }
+        }
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Exercice 6.1</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        void f1 (void)
+        {  printf ("bonjour\n") ;
+        }
+        void f2 (int n)
+        {  int i ;
+           for (i=0 ; i&lt;n ; i++)
+               printf ("bonjour\n") ;
+        }
+        int f3 (int n)
+        {  int i ;
+           for (i=0 ; i&lt;n ; i++)
+               printf ("bonjour\n") ;
+           return 0 ;
+        }
+        main()
+        {  void f1 (void) ;
+           void f2 (int) ;
+           int f3 (int) ;
+           f1 () ;
+           f2 (3) ;
+           f3 (3) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 6.2</h2>
+            <p>Il affiche :</p>
+            <pre><code>5  3</code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 6.3</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        void compte(void)
+        { 
+           static long n=0 ;
+           static long limit=1 ;
+           n++ ;
+           if (n&gt;=limit)
+              { printf ("** appel %ld fois **\n", limit) ;
+                limit *= 10 ;
+              }
+        }
+        main()
+        {  
+           void compte(void) ;
+           long nmax=100000 ;
+           long i ;
+           for (i=1 ; i&lt;=nmax ; i++) compte() ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 6.4</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        int acker (int m, int n)
+        {  if ( (m&lt;0) || (n&lt;0) )
+                return(0) ;
+           else if (m==0)
+                return (n+1) ;
+           else if  (n==0)
+                return ( acker(m-1,1) ) ;
+           else
+                return acker ( m-1, acker(m,n-1) ) ;
+        }
+        main()
+        {  int acker (int, int) ;
+           int m, n ;
+           printf ("donnez m et n : ") ;
+           scanf ("%d %d", &amp;m, &amp;n) ;
+           printf ("acker ( %d,%d) = %d", m, n, acker(m,n) ) ;
+        }
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Exercice 7.1</h2>
+            <h3>a)</h3>
+            <p>Correction non fournie.</p>
+            
+            <h3>b)</h3>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #define NVAL 10                       /* nombre de valeurs du tableau */
+        main()
+        {   
+            int i, min, max ;
+            int t[NVAL] ;
+            printf ("donnez %d valeurs\n", NVAL) ;
+            for (i=0 ; i&lt;NVAL ; i++) scanf ("%d", &t[i]) ;   
+            max = min = t[0] ;
+            for (i=1 ; i&lt;NVAL ; i++)
+            { 
+                if (t[i] &gt; max) max = t[i] ;  /* ou max = t[i]>max ? t[i] : max */
+                if (t[i] &lt; min) min = t[i] ;  /* ou min = t[i]<min ? t[i] : min */
+            }
+            printf ("valeur max : %d\n", max) ;
+            printf ("valeur min : %d\n", min) ;
+        }
+        
+        #include &lt;stdio.h&gt;
+        #define NVAL 10               /* nombre de valeurs du tableau */
+        main()
+        {   
+            int i, min, max ;
+            int t[NVAL] ;
+            printf ("donnez %d valeurs\n", NVAL) ;
+            for (i=0 ; i&lt;NVAL ; i++) scanf ("%d", t+i) ; 
+                                      /* et non  *(t+i) !! */
+            max = min = *t ;
+            for (i=1 ; i&lt;NVAL ; i++)
+            { 
+                if (*(t+i) &gt; max) max = *(t+i) ;    
+                if (*(t+i) &lt; min) min = *(t+i) ;   
+            }
+            printf ("valeur max : %d\n", max) ;
+            printf ("valeur min : %d\n", min) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 7.2</h2>
+            <pre><code>
+        void maxmin (int t[], int n, int * admax, int * admin)
+        {  
+            int i, max, min ;
+            max = t[0] ;
+            min = t[0] ;
+            for (i=1 ; i&lt;n ; i++)
+            {  
+                if (t[i] &gt; max) max = t[i] ;
+                if (t[i] &lt; min) min = t[i] ;
+            }
+            *admax = max ;
+            *admin = min ;
+        }    
+        
+        #include &lt;stdio.h&gt;
+        main()
+        {  
+            void maxmin (int [], int, int *, int *) ;
+            int t[8] = { 2, 5, 7, 2, 9, 3, 9, 4} ;
+            int max, min ;
+            maxmin (t, 8, &max, &min) ;
+            printf ("valeur maxi : %d\n", max) ;
+            printf ("valeur mini : %d\n", min) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 7.3</h2>
+            <pre><code>
+        void tri (unsigned char c[] , int nc)
+        {  
+            int i,j ;
+            char ct ;
+            for (i=0 ; i&lt;nc-1 ; i++)
+                for (j=i+1 ; j&lt;nc ; j++)
+                    if ( c[i]&gt;c[j] )
+                    { 
+                        ct = c[i] ;
+                        c[i] = c[j] ;
+                        c[j] = ct ;
+                    }
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 7.4</h2>
+            <pre><code>
+        void sommat (double * a, double * b, double * c, int n, int p)
+        {  
+            int i ;
+            for (i=0 ; i&lt;n*p ; i++)
+                *(c+i) = *(a+i) + *(b+i) ;
+        }
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Exercice 8.1</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #define CAR 'e'
+        #define LGMAX 132
+        
+        main()
+        {   
+            char texte[LGMAX+1] ;
+            char * adr ;
+            int ncar ;
+            printf ("donnez un texte terminé par return\n") ;
+            gets (texte) ;
+            ncar = 0 ;
+            adr = texte ;
+            while ( adr=strchr(adr,CAR) )
+            { 
+                ncar++ ;
+                adr++ ;
+            }
+            printf ("votre texte comporte %d fois le caractère %c", ncar, CAR) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 8.2</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #define CAR 'e'
+        #define LGMAX 132
+        
+        main()
+        {   
+            char texte[LGMAX+1] ;
+            char * adr ;
+            printf ("donnez un texte terminé par return\n") ;
+            gets (texte) ;
+            adr = texte ;
+            while ( adr=strchr(adr,CAR) )  
+                strcpy (adr, adr+1) ;
+            printf ("voici votre texte privé des caractères %c\n", CAR) ;
+            puts (texte) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 8.3</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #define NBCAR 30
+        
+        main()
+        {  
+            char nom[NBCAR+1] ;
+            int i ;
+            printf ("donnez un nom d’au plus %d caractères : ", NBCAR) ;
+            gets(nom) ;
+            for ( i=strlen(nom) ; i&gt;=0 ; i--)
+                putchar (nom[i]) ;
+        }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 8.4</h2>
+            <pre><code>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #define LGMAX 26
+        
+        main()
+        {
+            char verbe [LGMAX+1] ;
+            char * adfin ;
+            char * term[6] = {"e",  "es", "e",  "ons",  "ez",   "ent" } ;
+            char * deb[6]  = {"je", "tu", "il", "nous", "vous", "ils"} ;
+            int i ;
+            
+            do
+            { 
+                printf ("donnez un verbe du premier groupe : ") ;
+                gets (verbe) ;
+                adfin = verbe + strlen(verbe) - 2 ;
+            }
+            while ( strcmp (adfin, "er") ) ;
+            
+            printf ("\nIndicatif présent :\n") ;
+            for (i=0 ; i<6 ; i++)
+            { 
+                strcpy (adfin, term[i]) ;
+                printf ("%s %s\n", deb[i], verbe) ;
+            }
+        }
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Exercice 9.1</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #define NPOINTS 5
+        main()
+        {  
+            struct point { 
+                int num; 
+                float x; 
+                float y; 
+            };
+            
+            struct point courbe[NPOINTS]; 
+            int i; 
+            
+            for (i = 0; i &lt; NPOINTS; i++) {
+                printf("numéro : "); 
+                scanf("%d", &courbe[i].num);
+                printf("x      : "); 
+                scanf("%f", &courbe[i].x);
+                printf("y      : "); 
+                scanf("%f", &courbe[i].y);
+            }
+            
+            printf(" **** structure fournie ****\n"); 
+            for (i = 0; i &lt; NPOINTS; i++)
+                printf("numéro : %d   x : %f   y : %f\n", courbe[i].num, courbe[i].x, courbe[i].y); 
+        }
+            </pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 9.2</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #define NPOINTS 5
+        struct point { 
+            int num; 
+            float x; 
+            float y; 
+        };
+        
+        void lit(struct point []);  /* ou void lit (struct point *) */
+        void affiche(struct point []);  /* ou void lit (struct point *) */
+        
+        main() {
+            struct point courbe[NPOINTS]; 
+            lit(courbe); 
+            affiche(courbe); 
+        }
+        
+        void lit(struct point courbe []) /* ou void lit (struct point * courbe) */ {
+            int i; 
+            for (i = 0; i &lt; NPOINTS; i++) {
+                printf("numéro : "); 
+                scanf("%d", &courbe[i].num);
+                printf("x      : "); 
+                scanf("%f", &courbe[i].x);
+                printf("y      : "); 
+                scanf("%f", &courbe[i].y);
+            }
+        }
+        
+        void affiche(struct point courbe []) /* ou void affiche (struct point * courbe) */ {
+            int i; 
+            printf(" **** structure fournie ****\n"); 
+            for (i = 0; i &lt; NPOINTS; i++)
+                printf("%d %f %f\n", courbe[i].num, courbe[i].x, courbe[i].y); 
+        }
+            </pre>
+        </section>
+
+        <section>
+            <h2>Exercice 10.1</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #define LGMAX 81
+        main()
+        {  
+            char nomfich[21];     /* nom de fichier */
+            FILE *entree;
+            int num = 1;          /* numéro de ligne */
+            char ligne[LGMAX];    /* tampon d’une ligne */
+            
+            printf("donnez le nom du fichier à lister : ");
+            scanf("%20s", nomfich);
+            entree = fopen(nomfich, "r");
+            
+            printf("  **** liste du fichier %s ****\n", nomfich);
+            while (fgets(ligne, LGMAX, entree)) {
+                printf("%5d ", num++);
+                printf("%s", ligne);
+            }
+        }
+            </pre>
+            <p> Certaines implémentations demanderont le mode « rt ». </p>
+        </section>
+        
+        <section>
+            <h2>Exercice 10.2</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #define LGNOM    20
+        #define LGPRENOM 15
+        #define LGTEL    11
+        main()
+        {
+            char nomfich[21];     /* nom de fichier */
+            FILE *sortie;
+            struct { 
+                char nom [LGNOM+1];
+                char prenom [LGPRENOM+1];
+                int  age;
+                char tel [LGTEL+1];
+            } bloc;
+            
+            printf("donnez le nom du fichier à créer : ");
+            gets(nomfich);
+            sortie = fopen(nomfich, "w");
+            
+            printf(" --- pour finir la saisie, donnez un nom ‘vide' ---\n");
+            while (printf("nom : "), gets(bloc.nom), strlen(bloc.nom)) {
+                printf("prénom    : ");
+                gets(bloc.prenom);
+                printf("age       : ");
+                scanf("%d", &bloc.age); 
+                getchar();
+                printf("téléphone : ");
+                gets(bloc.tel);
+                fwrite(&bloc, sizeof(bloc), 1, sortie);
+            }
+            fclose(sortie);
+        }
+            </pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 10.3</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #include &lt;string.h&gt;
+        #define LGNOM    20
+        #define LGPRENOM 15
+        #define LGTEL    11
+        main()
+        {
+            char nomfich[21];         /* nom de fichier */
+            FILE *entree;
+            struct { 
+                char nom [LGNOM+1];
+                char prenom [LGPRENOM+1];
+                int  age;
+                char tel [LGTEL+1];
+            } bloc;
+            
+            char nomcher[LGNOM+1];   /* nom recherché */
+            int trouve;               /* indicateur nom trouvé */
+            
+            printf("donnez le nom du fichier à consulter : ");
+            gets(nomfich);
+            entree = fopen(nomfich, "r");
+            
+            printf(" quel nom recherchez-vous : ");
+            gets(nomcher);
+            trouve = 0;
+            
+            do {
+                fread(&bloc, sizeof(bloc), 1, entree);
+                if (strcmp(nomcher, bloc.nom) == 0) 
+                    trouve = 1;
+            } while ((!trouve) && (!feof(entree));
+            
+            if (trouve) {
+                printf("prénom    : %s\n", bloc.prenom);
+                printf("âge       : %d\n", bloc.age);
+                printf("téléphone : %s\n", bloc.tel);
+            } else 
+                printf("-- ce nom ne figure pas au fichier --");
+        }
+            </pre>
+        </section>
+        
+        <section>
+            <h2>Exercice 10.4</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #define LGNOM    20
+        #define LGPRENOM 15
+        #define LGTEL    11
+        main()
+        {
+            char nomfich[21];         /* nom de fichier */
+            FILE *entree;
+            struct { 
+                char nom [LGNOM+1];
+                char prenom [LGPRENOM+1];
+                int  age;
+                char tel [LGTEL+1];
+            } bloc;
+            
+            int num;                  /* numéro de bloc cherché */
+            long taille,              /* taille du fichier en octets */
+                 pos;                 /* position dans le fichier */
+            
+            printf("donnez le nom du fichier à consulter : ");
+            gets(nomfich);
+            entree = fopen(nomfich, "r");
+            
+            fseek(entree, 0, SEEK_END); 
+            taille = ftell(entree);
+            
+            printf(" quel numéro recherchez-vous : ");
+            scanf("%d", &num);
+            pos = num * sizeof(bloc);
+            
+            if (num < 0 || pos >= taille)
+                printf("-- ce numéro ne figure pas dans le fichier ");
+            else {
+                fseek(entree, pos, 0);
+                fread(&bloc, sizeof(bloc), 1, entree);
+                printf("nom       : %s\n", bloc.nom);
+                printf("prénom    : %s\n", bloc.prenom);
+                printf("age       : %d\n", bloc.age);
+                printf("téléphone : %s\n", bloc.tel);
+            }
+        }
+            </pre>
+        </section>
+
+        <section>
+            <h2>Exercice 11.1</h2>
+            <pre>
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+        
+        typedef struct element { 
+            int num;
+            float x;
+            float y;
+            struct element *suivant;
+        } s_point;
+        
+        void creation(s_point **adeb);
+        void liste(s_point *debut);
+        
+        main()
+        {
+            s_point *debut;
+            creation(&debut);
+            liste(debut);
+        }
+        
+        void creation(s_point **adeb)
+        {
+            int num;
+            float x, y;
+            s_point *courant;
+            *adeb = NULL;
+            
+            while (printf("numéro x y : "),
+                   scanf("%d %f %f", &num, &x, &y), num) 
+            {
+                courant = (s_point *)malloc(sizeof(s_point));
+                courant->num = num;
+                courant->x = x;
+                courant->y = y;
+                courant->suivant = *adeb;
+                *adeb = courant;
+            }
+        }
+        
+        void liste(s_point *debut)
+        {
+            printf("  **** liste de la structure ****\n");
+            while (debut) 
+            {
+                printf("%d %f %f\n", (debut)->num, (debut)->x, (debut)->y);
+                debut = (debut)->suivant;
+            }
+        }
+            </pre>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Correction. Verifiez si vous avez les bonnes reponses! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

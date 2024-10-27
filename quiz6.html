@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les structures en C</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #d1e7ff;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .next-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #28a745;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sur les structures en C</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="question"></div>
+        <div class="options"></div>
+        <div class="feedback"></div>
+        <button class="next-btn" style="display: none;">Question suivante</button>
+    </div>
+
+    <script>
+
+const questions = [
+    {
+        question: "Quelle est la syntaxe correcte pour déclarer une structure en C ?",
+        options: [
+            "struct Point { int x; int y; };",
+            "structure Point { int x; int y; };",
+            "struct Point ( int x, int y );",
+            "struct Point { int x, y; };"
+        ],
+        correct: 0
+    },
+    {
+        question: "Comment accède-t-on aux membres d'une structure en C ?",
+        options: [
+            "Avec l'opérateur '.'",
+            "Avec l'opérateur '->'",
+            "Avec l'opérateur '&'",
+            "Avec l'opérateur '*'"
+        ],
+        correct: 0
+    },
+    {
+        question: "Comment définit-on une variable de type structure 'Point' en C ?",
+        options: [
+            "struct Point p;",
+            "Point p;",
+            "struct p Point;",
+            "p Point;"
+        ],
+        correct: 0
+    },
+    {
+        question: "Comment initialiser les membres d'une structure en C ?",
+        options: [
+            "struct Point p = {3, 4};",
+            "struct Point p = [3, 4];",
+            "Point p = {x: 3, y: 4};",
+            "p = {3, 4};"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quel opérateur est utilisé pour accéder aux membres d'une structure via un pointeur ?",
+        options: [
+            "->",
+            ".",
+            "&",
+            "*"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quelle est la sortie du code suivant ? struct Point {int x; int y;}; struct Point p = {2, 3}; printf('%d', p.x);",
+        options: [
+            "2",
+            "3",
+            "Erreur",
+            "Aucune sortie"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quelle est la différence entre une structure et une union en C ?",
+        options: [
+            "Tous les membres de l'union partagent la même adresse mémoire, ce qui n'est pas le cas pour les structures.",
+            "Les structures ne peuvent pas contenir de membres de types différents, contrairement aux unions.",
+            "Les structures peuvent être initialisées directement, alors que les unions doivent être dynamiquement allouées.",
+            "Il n'y a aucune différence."
+        ],
+        correct: 0
+    },
+    {
+        question: "Comment alloue-t-on dynamiquement une structure en C ?",
+        options: [
+            "struct Point p = (struct Point) malloc(sizeof(struct Point));",
+            "Point p = malloc(sizeof(Point));",
+            "malloc(Point);",
+            "Point *p = allocate(sizeof(struct Point));"
+        ],
+        correct: 0
+    },
+    {
+        question: "Quelle est la taille d'une structure contenant un int et un char sur un système de 32 bits ?",
+        options: [
+            "8 octets",
+            "5 octets",
+            "4 octets",
+            "Dépend de l'alignement"
+        ],
+        correct: 3
+    },
+    {
+        question: "Comment passer une structure à une fonction en C ?",
+        options: [
+            "En la passant par valeur ou par référence",
+            "En la passant uniquement par valeur",
+            "En la passant uniquement par référence",
+            "On ne peut pas passer une structure à une fonction"
+        ],
+        correct: 0
+    }
+];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionEl = document.querySelector('.question');
+        const optionsEl = document.querySelector('.options');
+        const feedbackEl = document.querySelector('.feedback');
+        const nextBtn = document.querySelector('.next-btn');
+        const progressBar = document.querySelector('.progress');
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index));
+                optionsEl.appendChild(button);
+            });
+            feedbackEl.textContent = '';
+            nextBtn.style.display = 'none';
+            updateProgressBar();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            if (index === questions[currentQuestion].correct) {
+                feedbackEl.textContent = "Correct ! Bien joué !";
+                feedbackEl.classList.add('correct');
+                feedbackEl.classList.remove('incorrect');
+                score++;
+            } else {
+                feedbackEl.textContent = "Incorrect. La bonne réponse était : " + questions[currentQuestion].options[questions[currentQuestion].correct];
+                feedbackEl.classList.add('incorrect');
+                feedbackEl.classList.remove('correct');
+            }
+            
+            nextBtn.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            questionEl.textContent = `Quiz terminé ! Votre score : ${score}/${questions.length}`;
+            optionsEl.innerHTML = '';
+            feedbackEl.textContent = score === questions.length ? "Parfait ! Vous maîtrisez les variables en C !" : "Continuez à pratiquer pour améliorer vos connaissances !";
+            nextBtn.style.display = 'none';
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        nextBtn.addEventListener('click', nextQuestion);
+        loadQuestion();
+    </script>
+</body>
+</html>

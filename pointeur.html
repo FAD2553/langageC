@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partir à l'Aventure avec les Pointeurs - C-ool</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Partir à l'Aventure avec les Pointeurs</h1>
+        <p>Découvrez la magie des pointeurs en C</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#definition">Qu'est-ce qu'un Pointeur ?</a></li>
+            <li><a href="#utilisation">Utilisation des Pointeurs</a></li>
+            <li><a href="#exemples">Exemples Pratiques</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Les pointeurs sont des outils puissants qui permettent de gérer directement la mémoire en C. Ils sont comme des cartes au trésor qui vous guident vers les adresses de mémoire où sont stockées vos données.</p>
+        </section>
+
+        <section id="definition">
+            <h2>Qu'est-ce qu'un Pointeur ?</h2>
+            <p>Un pointeur est une variable qui contient l'adresse d'une autre variable. Voici quelques caractéristiques des pointeurs :</p>
+            <ul>
+                <li>Ils permettent d'accéder à la mémoire de manière dynamique.</li>
+                <li>Ils sont utilisés pour passer des arguments par référence aux fonctions.</li>
+                <li>Ils sont essentiels pour manipuler des tableaux et des chaînes de caractères.</li>
+            </ul>
+        </section>
+
+        <section id="utilisation">
+            <h2>Utilisation des Pointeurs</h2>
+            <p>Voici comment déclarer et utiliser un pointeur :</p>
+            <div class="example">
+                <pre><code>
+int main() {
+    int var = 42;     // Variable
+    int *ptr = &var; // Pointeur qui stocke l'adresse de var
+
+    // Affichage des valeurs
+    printf("La valeur de var: %d\n", var);
+    printf("L'adresse de var: %p\n", (void*)&var);
+    printf("La valeur du pointeur ptr: %p\n", (void*)ptr);
+    printf("La valeur pointée par ptr: %d\n", *ptr);
+    
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple :</p>
+            <ul>
+                <li>Nous avons une variable <code>var</code> avec une valeur de 42.</li>
+                <li>Nous déclarons un pointeur <code>ptr</code> qui stocke l'adresse de <code>var</code>.</li>
+                <li>Nous affichons la valeur de <code>var</code>, son adresse, la valeur du pointeur, et la valeur pointée par <code>ptr</code>.</li>
+            </ul>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples Pratiques</h2>
+            <p>Voici quelques exemples d'utilisation des pointeurs :</p>
+            <ul>
+                <li><strong>Manipulation de Tableaux :</strong> Les pointeurs peuvent être utilisés pour parcourir des tableaux.</li>
+                <li><strong>Passage par Référence :</strong> Passer des variables à une fonction pour les modifier directement.</li>
+                <li><strong>Allocation Dynamique :</strong> Gérer la mémoire dynamique avec <code>malloc</code> et <code>free</code>.</li>
+            </ul>
+            <p>Voici un exemple d'allocation dynamique :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *arr = malloc(5 * sizeof(int)); // Allocation dynamique d'un tableau de 5 entiers
+
+    for (int i = 0; i < 5; i++) {
+        arr[i] = i * 10; // Remplissage du tableau
+        printf("%d ", arr[i]);
+    }
+
+    free(arr); // Libération de la mémoire
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, nous utilisons <code>malloc</code> pour allouer de la mémoire pour un tableau d'entiers, puis nous le remplissons et affichons ses valeurs avant de libérer la mémoire avec <code>free</code>.</p>
+        </section>
+        
+        <section>
+            <a href="quiz5.html" class="btn">Faire le Quizz</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 C-ool: Apprenez le C en vous amusant! Créé par Ousmane KONFE</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrolltargetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

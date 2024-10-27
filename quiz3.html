@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les boucles en C</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            background-color: #d1e7ff;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        .next-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #28a745;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sur les boucles en C</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="question"></div>
+        <div class="options"></div>
+        <div class="feedback"></div>
+        <button class="next-btn" style="display: none;">Question suivante</button>
+    </div>
+
+    <script>
+const questions = [
+    {
+        question: "Quelle est la syntaxe correcte pour une boucle 'for' en C ?",
+        options: ["for (int i = 0; i < n; i++) {}", "for int i = 0; i < n; i++ {}", "for (i = 0; i < n) {}", "for (i = 0; i < n; i++)"],
+        correct: 0
+    },
+    {
+        question: "Comment s'appelle la boucle qui s'exécute au moins une fois ?",
+        options: ["while", "for", "do-while", "repeat"],
+        correct: 2
+    },
+    {
+        question: "Quelle est la sortie du code suivant : for (int i = 0; i < 5; i++) { printf('%d', i); } ?",
+        options: ["0 1 2 3 4", "1 2 3 4 5", "0 1 2 3 4 5", "5"],
+        correct: 0
+    },
+    {
+        question: "Quel mot-clé est utilisé pour sortir d'une boucle prématurément ?",
+        options: ["continue", "exit", "break", "return"],
+        correct: 2
+    },
+    {
+        question: "Quelle boucle est généralement utilisée lorsque le nombre d'itérations n'est pas connu à l'avance ?",
+        options: ["for", "while", "do-while", "toutes les réponses"],
+        correct: 1
+    },
+    {
+        question: "Que fait l'instruction 'continue' dans une boucle ?",
+        options: ["Termine la boucle", "Passe à l'itération suivante", "Sort de la boucle", "Aucune de ces réponses"],
+        correct: 1
+    },
+    {
+        question: "Quelle est la valeur de 'i' après l'exécution de ce code : for (int i = 0; i < 10; i++) { if (i == 5) break; } ?",
+        options: ["5", "10", "0", "9"],
+        correct: 0
+    },
+    {
+        question: "Quel est l'inconvénient principal d'une boucle infinie ?",
+        options: ["Elle ne s'exécute jamais", "Elle consomme trop de ressources", "Elle ne peut pas être arrêtée", "Elle est difficile à comprendre"],
+        correct: 1
+    },
+    {
+        question: "Quelle est la bonne manière d'écrire une boucle 'while' ?",
+        options: ["while (condition) {}", "while condition {}", "do { } while (condition);", "while { condition }"],
+        correct: 0
+    },
+    {
+        question: "Comment déclarer une boucle qui imprime les nombres de 1 à 5 avec une boucle 'do-while' ?",
+        options: ["do { printf('%d', i); } while (i <= 5);", "for (int i = 1; i <= 5; i++) { printf('%d', i); }", "while (i < 5) { printf('%d', i); i++; }", "do-while (i < 5) { printf('%d', i); }"],
+        correct: 0
+    }
+];
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questionEl = document.querySelector('.question');
+        const optionsEl = document.querySelector('.options');
+        const feedbackEl = document.querySelector('.feedback');
+        const nextBtn = document.querySelector('.next-btn');
+        const progressBar = document.querySelector('.progress');
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionEl.textContent = question.question;
+            optionsEl.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option');
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index));
+                optionsEl.appendChild(button);
+            });
+            feedbackEl.textContent = '';
+            nextBtn.style.display = 'none';
+            updateProgressBar();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            if (index === questions[currentQuestion].correct) {
+                feedbackEl.textContent = "Correct ! Bien joué !";
+                feedbackEl.classList.add('correct');
+                feedbackEl.classList.remove('incorrect');
+                score++;
+            } else {
+                feedbackEl.textContent = "Incorrect. La bonne réponse était : " + questions[currentQuestion].options[questions[currentQuestion].correct];
+                feedbackEl.classList.add('incorrect');
+                feedbackEl.classList.remove('correct');
+            }
+            
+            nextBtn.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            questionEl.textContent = `Quiz terminé ! Votre score : ${score}/${questions.length}`;
+            optionsEl.innerHTML = '';
+            feedbackEl.textContent = score === questions.length ? "Parfait ! Vous maîtrisez les variables en C !" : "Continuez à pratiquer pour améliorer vos connaissances !";
+            nextBtn.style.display = 'none';
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        nextBtn.addEventListener('click', nextQuestion);
+        loadQuestion();
+    </script>
+</body>
+</html>

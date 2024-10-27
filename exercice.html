@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Exercices</h1>
+        <p>Exercez-vous apr&egrave;s les cours</p>
+    </header>
+
+    <main>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 3.1</h2>
+        <p>Soit les déclarations suivantes :</p>
+        <code>
+            int n = 10, p = 4; <br>
+            long q = 2; <br>
+            float x = 1.75;
+        </code>
+        <p>Donner le type et la valeur de chacune des expressions suivantes :</p>
+        <ul>
+            <li>a) <code>n + q</code></li>
+            <li>b) <code>n + x</code></li>
+            <li>c) <code>n % p + q</code></li>
+            <li>d) <code>n &lt; p</code></li>
+            <li>e) <code>n &gt;= p</code></li>
+            <li>f) <code>n &gt; q</code></li>
+            <li>g) <code>q + 3 * (n > p)</code></li>
+            <li>h) <code>q &amp;&amp; n</code></li>
+            <li>i) <code>(q-2) &amp;&amp; (n-10)</code></li>
+            <li>j) <code>x * (q == 2)</code></li>
+            <li>k) <code>x * (q = 5)</code></li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 3.2</h2>
+        <p>Écrire plus simplement l’instruction suivante :</p>
+        <code>z = (a > b ? a : b) + (a <= b ? a : b);</code>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 3.3</h2>
+        <p>n étant de type int, écrire une expression qui prend la valeur :</p>
+        <ul>
+            <li>-1 si n est négatif,</li>
+            <li>0 si n est nul,</li>
+            <li>1 si n est positif.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 3.4</h2>
+        <p>Quels résultats fournit le programme suivant ?</p>
+        <code>
+            #include &lt;stdio.h&gt; <br>
+            main() { <br>
+                &nbsp;&nbsp;int n=10, p=5, q=10, r; <br>
+                &nbsp;&nbsp;r = n == (p = q); <br>
+                &nbsp;&nbsp;printf("A : n = %d  p = %d  q = %d  r = %d\n", n, p, q, r); <br>
+                &nbsp;&nbsp;n = p = q = 5; <br>
+                &nbsp;&nbsp;n += p += q; <br>
+                &nbsp;&nbsp;printf("B : n = %d  p = %d  q = %d\n", n, p, q); <br>
+                &nbsp;&nbsp;q = n &lt; p ? n++ : p++; <br>
+                &nbsp;&nbsp;printf("C : n = %d  p = %d  q = %d\n", n, p, q); <br>
+                &nbsp;&nbsp;q = n &gt; p ? n++ : p++; <br>
+                &nbsp;&nbsp;printf("D : n = %d  p = %d  q = %d\n", n, p, q); <br>
+            }
+        </code>
+    </section>
+
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 4.1</h2>
+        <p>Soit les déclarations suivantes :</p>
+        <code>
+            int n = 10, p = 4; <br>
+            long q = 2; <br>
+            float x = 1.75;
+        </code>
+        <p>Donner le type et la valeur de chacune des expressions suivantes :</p>
+        <ul>
+            <li>a) <code>n + q</code></li>
+            <li>b) <code>n + x</code></li>
+            <li>c) <code>n % p + q</code></li>
+            <li>d) <code>n &lt; p</code></li>
+            <li>e) <code>n &gt;= p</code></li>
+            <li>f) <code>n &gt; q</code></li>
+            <li>g) <code>q + 3 * (n > p)</code></li>
+            <li>h) <code>q &amp;&amp; n</code></li>
+            <li>i) <code>(q-2) &amp;&amp; (n-10)</code></li>
+            <li>j) <code>x * (q == 2)</code></li>
+            <li>k) <code>x * (q = 5)</code></li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 4.2</h2>
+        <p>Écrire plus simplement l’instruction suivante :</p>
+        <code>z = (a > b ? a : b) + (a <= b ? a : b);</code>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 4.3</h2>
+        <p>n étant de type int, écrire une expression qui prend la valeur :</p>
+        <ul>
+            <li>-1 si n est négatif,</li>
+            <li>0 si n est nul,</li>
+            <li>1 si n est positif.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 4.4</h2>
+        <p>Quels résultats fournit le programme suivant ?</p>
+        <code>
+            #include &lt;stdio.h&gt; <br>
+            main() { <br>
+                &nbsp;&nbsp;int n=10, p=5, q=10, r; <br>
+                &nbsp;&nbsp;r = n == (p = q); <br>
+                &nbsp;&nbsp;printf("A : n = %d  p = %d  q = %d  r = %d\n", n, p, q, r); <br>
+                &nbsp;&nbsp;n = p = q = 5; <br>
+                &nbsp;&nbsp;n += p += q; <br>
+                &nbsp;&nbsp;printf("B : n = %d  p = %d  q = %d\n", n, p, q); <br>
+                &nbsp;&nbsp;q = n &lt; p ? n++ : p++; <br>
+                &nbsp;&nbsp;printf("C : n = %d  p = %d  q = %d\n", n, p, q); <br>
+                &nbsp;&nbsp;q = n &gt; p ? n++ : p++; <br>
+                &nbsp;&nbsp;printf("D : n = %d  p = %d  q = %d\n", n, p, q); <br>
+            }
+        </code>
+    </section>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 5.1</h2>
+        <p>Soit le petit programme suivant :</p>
+        <code>
+            #include &lt;stdio.h&gt;<br>
+            main() { <br>
+            &nbsp;&nbsp;int i, n, som; <br>
+            &nbsp;&nbsp;som = 0; <br>
+            &nbsp;&nbsp;for (i = 0; i &lt; 4; i++) { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;printf("donnez un entier "); <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;scanf("%d", &n); <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;som += n; <br>
+            &nbsp;&nbsp;} <br>
+            &nbsp;&nbsp;printf("Somme : %d\n", som); <br>
+            }
+        </code>
+        <p>Écrire un programme réalisant exactement la même chose, en employant, à la place de l’instruction for :</p>
+        <ul>
+            <li>● une instruction <code>while</code></li>
+            <li>● une instruction <code>do... while</code></li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 5.2</h2>
+        <p>Calculer la moyenne de notes fournies au clavier avec un dialogue de ce type :</p>
+        <pre>
+            note 1 : 12
+            note 2 : 15.25
+            note 3 : 13.5
+            note 4 : 8.75
+            note 5 : -1
+            moyenne de ces 4 notes : 12.37
+        </pre>
+        <p>Le nombre de notes n’est pas connu a priori et l’utilisateur peut en fournir autant qu’il le désire. Pour signaler qu’il a terminé, on convient qu’il fournira une note fictive négative. Celle-ci ne devra naturellement pas être prise en compte dans le calcul de la moyenne.</p>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 5.3</h2>
+        <p>Afficher un triangle rempli d’étoiles, s’étendant sur un nombre de lignes fourni en donnée et se présentant comme dans cet exemple :</p>
+        <pre>
+        *
+        **
+        ***
+        ****
+        *****
+        </pre>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 5.4</h2>
+        <p>Déterminer si un nombre entier fourni en donnée est premier ou non.</p>
+    </section>
+
+    <!-- Exercice 5 -->
+    <section>
+        <h2>Exercice 5.5</h2>
+        <p>Écrire un programme qui détermine la n-ième valeur <code>u<sub>n</sub></code> (n étant fourni en donnée) de la suite de Fibonacci définie comme suit :</p>
+        <ul>
+            <li>u<sub>1</sub> = 1</li>
+            <li>u<sub>2</sub> = 1</li>
+            <li>u<sub>n</sub> = u<sub>n-1</sub> + u<sub>n-2</sub> pour n &gt; 2</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 6 -->
+    <section>
+        <h2>Exercice 5.6</h2>
+        <p>Écrire un programme qui affiche la table de multiplication des nombres de 1 à 10, sous la forme suivante :</p>
+        <pre>
+          I   1   2   3   4   5   6   7   8   9  10
+        --------------------------------------------
+        1  I   1   2   3   4   5   6   7   8   9  10
+        2  I   2   4   6   8  10  12  14  16  18  20
+        3  I   3   6   9  12  15  18  21  24  27  30
+        4  I   4   8  12  16  20  24  28  32  36  40
+        5  I   5  10  15  20  25  30  35  40  45  50
+        6  I   6  12  18  24  30  36  42  48  54  60
+        7  I   7  14  21  28  35  42  49  56  63  70
+        8  I   8  16  24  32  40  48  56  64  72  80
+        9  I   9  18  27  36  45  54  63  72  81  90
+        10 I  10  20  30  40  50  60  70  80  90 100
+        </pre>
+    </section>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 6.1</h2>
+        <p>Écrire :</p>
+        <ul>
+            <li>● une fonction, nommée <code>f1</code>, se contentant d’afficher "bonjour" (elle ne possèdera aucun argument ni valeur de retour),</li>
+            <li>● une fonction, nommée <code>f2</code>, qui affiche "bonjour" un nombre de fois égal à la valeur reçue en argument <code>int</code> et qui ne renvoie aucune valeur,</li>
+            <li>● une fonction, nommée <code>f3</code>, qui fait la même chose que <code>f2</code>, mais qui, de plus, renvoie la valeur <code>int</code> 0.</li>
+        </ul>
+        <p>Écrire un petit programme appelant successivement chacune de ces trois fonctions, après les avoir convenablement déclarées sous forme d’un prototype.</p>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 6.2</h2>
+        <p>Qu’affiche le programme suivant ?</p>
+        <code>
+            int n=5 ; <br>
+            main() { <br>
+            &nbsp;&nbsp;void fct (int p) ; <br>
+            &nbsp;&nbsp;int n=3 ; <br>
+            &nbsp;&nbsp;fct(n) ; <br>
+            } <br><br>
+            void fct(int p) { <br>
+            &nbsp;&nbsp;printf("%d %d", n, p) ; <br>
+            }
+        </code>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 6.3</h2>
+        <p>Écrire une fonction qui se contente de comptabiliser le nombre de fois où elle a été appelée en affichant seulement un message de temps en temps, à savoir :</p>
+        <ul>
+            <li>● au premier appel : <code>*** appel 1 fois ***</code></li>
+            <li>● au dixième appel : <code>*** appel 10 fois ***</code></li>
+            <li>● au centième appel : <code>*** appel 100 fois ***</code></li>
+            <li>● et ainsi de suite pour le millième, le dix millième appel...</li>
+        </ul>
+        <p>On supposera que le nombre maximal d’appels ne peut dépasser la capacité d’un <code>long</code>.</p>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 6.4</h2>
+        <p>Écrire une fonction récursive calculant la valeur de la « fonction d’Ackermann » A définie pour <code>m > 0</code> et <code>n > 0</code> par :</p>
+        <ul>
+            <li>A(m, n) = A(m-1, A(m, n-1))</li>
+            <li>A(0, n) = n + 1 pour <code>n > 0</code></li>
+            <li>A(m, 0) = A(m-1, 1) pour <code>m > 0</code></li>
+        </ul>
+        <p>Calculer cette fonction pour <code>m > 0</code> et <code>n > 0</code>.</p>
+    </section>
+
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 7.1</h2>
+        <p>Écrire, de deux façons différentes, un programme qui lit 10 nombres entiers dans un tableau avant d’en rechercher le plus grand et le plus petit :</p>
+        <ul>
+            <li>● en utilisant uniquement le « formalisme tableau »,</li>
+            <li>● en utilisant le « formalisme pointeur », chaque fois que cela est possible.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 7.2</h2>
+        <p>Écrire une fonction qui ne renvoie aucune valeur et qui détermine la valeur maximale et la valeur minimale d’un tableau d’entiers (à un indice) de taille quelconque. Il faudra donc prévoir 4 arguments : le tableau, sa dimension, le maximum et le minimum.</p>
+        <p>Écrire un petit programme d’essai.</p>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 7.3</h2>
+        <p>Écrire une fonction permettant de trier par ordre croissant les valeurs entières d’un tableau de taille quelconque (transmise en argument). Le tri pourra se faire par réarrangement des valeurs au sein du tableau lui-même.</p>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 7.4</h2>
+        <p>Écrire une fonction calculant la somme de deux matrices dont les éléments sont de type <code>double</code>. Les adresses des trois matrices et leurs dimensions (communes) seront transmises en argument.</p>
+    </section>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 8.1</h2>
+        <p>Écrire un programme déterminant le nombre de lettres « e » (minuscules) présentes dans un texte de moins d’une ligne (supposée ne pas dépasser 132 caractères) fourni au clavier.</p>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 8.2</h2>
+        <p>Écrire un programme qui supprime toutes les lettres « e » (minuscules) d’un texte de moins d’une ligne (supposée ne pas dépasser 132 caractères) fourni au clavier. Le texte ainsi modifié sera créé, en mémoire, à la place de l’ancien.</p>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 8.3</h2>
+        <p>Écrire un programme qui lit au clavier un mot (d’au plus 30 caractères) et qui l’affiche à l’envers.</p>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 8.4</h2>
+        <p>Écrire un programme qui lit un verbe du premier groupe et qui en affiche la conjugaison au présent de l’indicatif, sous la forme :</p>
+        <ul>
+            <li>je chante</li>
+            <li>tu chantes</li>
+            <li>il chante</li>
+            <li>nous chantons</li>
+            <li>vous chantez</li>
+            <li>ils chantent</li>
+        </ul>
+        <p>Le programme devra vérifier que le mot fourni se termine bien par « er ». On supposera qu’il ne peut comporter plus de 26 lettres et qu’il s’agit d’un verbe régulier. Autrement dit, on admettra que l’utilisateur ne fournira pas un verbe tel que « manger » (le programme afficherait alors : « nous mangons »).</p>
+    </section>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 9.1</h2>
+        <p>Écrire un programme qui :</p>
+        <ul>
+            <li>Lit au clavier des informations dans un tableau de structures du type <code>point</code> défini comme suit :</li>
+        </ul>
+        <pre><code>struct point {
+    int num;
+    float x;
+    float y;
+};
+        </code></pre>
+        <ul>
+            <li>Le nombre d’éléments du tableau sera fixé par une instruction <code>#define</code>.</li>
+            <li>Affiche à l’écran l’ensemble des informations précédentes.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 9.2</h2>
+        <p>Réaliser la même chose que dans l’exercice précédent, mais en prévoyant cette fois :</p>
+        <ul>
+            <li>Une fonction pour la lecture des informations.</li>
+            <li>Une fonction pour l’affichage des informations.</li>
+        </ul>
+        <p>La structure <code>point</code> reste la même :</p>
+        <pre><code>struct point {
+    int num;
+    float x;
+    float y;
+};
+        </code></pre>
+        <p>Il faudra créer deux fonctions :</p>
+        <ul>
+            <li><code>void lirePoints(struct point tab[], int taille);</code> : pour lire les informations des points.</li>
+            <li><code>void afficherPoints(const struct point tab[], int taille);</code> : pour afficher les informations des points.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 1 -->
+    <section>
+        <h2>Exercice 10.1</h2>
+        <p>Écrire un programme permettant d’afficher le contenu d’un fichier texte en numérotant les lignes. Ces lignes ne devront jamais comporter plus de 80 caractères.</p>
+        <p>Le programme doit :</p>
+        <ul>
+            <li>Ouvrir un fichier en lecture.</li>
+            <li>Lire le fichier ligne par ligne et afficher chaque ligne avec un numéro.</li>
+            <li>Limiter la taille de chaque ligne à 80 caractères maximum.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 2 -->
+    <section>
+        <h2>Exercice 10.2</h2>
+        <p>Écrire un programme permettant de créer séquentiellement un fichier « répertoire » comportant pour chaque personne :</p>
+        <ul>
+            <li>nom (20 caractères maximum) ;</li>
+            <li>prénom (15 caractères maximum) ;</li>
+            <li>âge (entier) ;</li>
+            <li>numéro de téléphone (11 caractères maximum).</li>
+        </ul>
+        <p>Les informations relatives aux différentes personnes seront lues au clavier et enregistrées dans le fichier séquentiellement.</p>
+    </section>
+
+    <!-- Exercice 3 -->
+    <section>
+        <h2>Exercice 10.3</h2>
+        <p>Écrire un programme permettant, à partir du fichier créé par l’exercice précédent, de retrouver les informations correspondant à une personne de nom donné.</p>
+        <p>Le programme doit :</p>
+        <ul>
+            <li>Ouvrir le fichier en lecture.</li>
+            <li>Lire les informations de chaque personne.</li>
+            <li>Comparer le nom donné avec celui enregistré dans le fichier.</li>
+            <li>Afficher les informations si une correspondance est trouvée.</li>
+        </ul>
+    </section>
+
+    <!-- Exercice 4 -->
+    <section>
+        <h2>Exercice 10.4</h2>
+        <p>Écrire un programme permettant, à partir du fichier créé dans l’exercice 2, de retrouver les informations relatives à une personne de rang donné (par accès direct).</p>
+        <p>Le programme doit :</p>
+        <ul>
+            <li>Ouvrir le fichier en mode lecture/écriture avec un accès direct (binaire ou texte selon les besoins).</li>
+            <li>Permettre de rechercher les informations en fonction de l’index ou du rang de la personne.</li>
+            <li>Afficher les informations de la personne correspondante.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Exercice 11.1 : Affichage du contenu d'une liste chaînée</h2>
+        <p>Ajouter au programme de création d’une liste chaînée du paragraphe 3 une fonction permettant d’afficher le contenu de la liste chaînée précédemment créée. Cette fonction possédera comme unique argument l’adresse de début de la liste.</p>
+        
+        <h3>Exemple de fonction en C :</h3>
+        <code>
+            void afficherListe(Node* debut) {<br>
+                Node* courant = debut;<br>
+                while (courant != NULL) {<br>
+                    printf("%d -> ", courant->donnee);<br>
+                    courant = courant->suivant;<br>
+                }<br>
+                printf("NULL");<br>
+            }
+        </code>
+    </section>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Exercices. Exercez-vous apr&egrave;s les cours! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

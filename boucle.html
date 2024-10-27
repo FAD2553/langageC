@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un tour de boucle - C-ool</title>
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+<body>
+    <header>
+        <h1>Comprendre les Boucles</h1>
+        <p>Répétition d'instructions en C</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#while">Boucle while</a></li>
+            <li><a href="#for">Boucle for</a></li>
+            <li><a href="#do-while">Boucle do-while</a></li>
+            <li><a href="#exemples">Exemples</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Les boucles en C permettent d'exécuter un bloc d'instructions plusieurs fois en fonction d'une condition. C'est utile lorsque vous voulez répéter une tâche jusqu'à ce qu'une condition soit remplie.</p>
+            <p>Les trois principales boucles en C sont :</p>
+            <ul>
+                <li>La boucle <code>while</code></li>
+                <li>La boucle <code>for</code></li>
+                <li>La boucle <code>do-while</code></li>
+            </ul>
+        </section>
+
+        <section id="while">
+            <h2>Boucle while</h2>
+            <p>La boucle <code>while</code> exécute un bloc de code tant qu'une condition donnée est vraie. Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int compteur = 0;
+
+    while (compteur < 5) {
+        printf("Compteur: %d\n", compteur);
+        compteur++;
+    }
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, le programme affiche les valeurs de <code>compteur</code> tant que cette variable est inférieure à 5.</p>
+        </section>
+
+        <section id="for">
+            <h2>Boucle for</h2>
+            <p>La boucle <code>for</code> est généralement utilisée lorsqu'on connaît à l'avance le nombre d'itérations. Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 0; i < 5; i++) {
+        printf("i vaut : %d\n", i);
+    }
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, le programme affiche les valeurs de <code>i</code> de 0 à 4.</p>
+        </section>
+
+        <section id="do-while">
+            <h2>Boucle do-while</h2>
+            <p>La boucle <code>do-while</code> est similaire à la boucle <code>while</code>, à la différence que la condition est vérifiée après chaque exécution du bloc de code, garantissant que le code s'exécute au moins une fois. Exemple :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int compteur = 0;
+
+    do {
+        printf("Compteur: %d\n", compteur);
+        compteur++;
+    } while (compteur < 5);
+
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, le programme exécute le bloc de code une première fois, puis vérifie la condition.</p>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples supplémentaires</h2>
+            <p>Voici quelques exemples plus complexes utilisant des boucles :</p>
+            <ul>
+                <li>Itérer à travers un tableau d'éléments avec une boucle <code>for</code>.</li>
+                <li>Compter les occurrences d'un élément dans une liste avec une boucle <code>while</code>.</li>
+                <li>Répéter une action jusqu'à la satisfaction d'une condition utilisateur avec une boucle <code>do-while</code>.</li>
+            </ul>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int tableau[5] = {1, 2, 3, 4, 5};
+
+    for (int i = 0; i < 5; i++) {
+        printf("Élément %d: %d\n", i, tableau[i]);
+    }
+    return 0;
+}
+                </code></pre>
+            </div>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="quiz3.html" class="btn">Aller aux Quizz</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Comprendre les Boucles. Créé par Ousmane KONFE</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables en C - Jouer avec les variables</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <h1>Jouer avec les variables en C</h1>
+        <p>Une introduction à la magie des données</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#definition">Définition des variables</a></li>
+            <li><a href="#types">Types de variables</a></li>
+            <li><a href="#declaration">Déclaration et initialisation</a></li>
+            <li><a href="#exemples">Exemples pratiques</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="definition">
+            <h2>Définition des variables</h2>
+            <p>Une variable est un espace de stockage nommé qui peut contenir une valeur. En C, les variables sont utilisées pour stocker des données temporaires qui peuvent être modifiées au cours de l'exécution d'un programme. Elles permettent de rendre le code dynamique et interactif.</p>
+        </section>
+
+        <section id="types">
+            <h2>Types de variables</h2>
+            <p>En C, il existe plusieurs types de variables, chacun ayant ses propres caractéristiques :</p>
+            <ul>
+                <li><strong>int</strong> : Pour les entiers (ex: 42, -7)</li>
+                <li><strong>float</strong> : Pour les nombres à virgule flottante (ex: 3.14, -0.001)</li>
+                <li><strong>double</strong> : Pour les nombres à virgule flottante avec une plus grande précision.</li>
+                <li><strong>char</strong> : Pour les caractères individuels (ex: 'a', 'Z')</li>
+                <li><strong>bool</strong> : Pour les valeurs booléennes (true ou false).</li>
+            </ul>
+        </section>
+
+        <section id="declaration">
+            <h2>Déclaration et initialisation</h2>
+            <p>Pour déclarer une variable, vous devez spécifier son type suivi de son nom. Vous pouvez également l'initialiser lors de la déclaration. Voici un exemple :</p>
+            <div class="example">
+                <pre><code>
+int age = 25;
+float hauteur = 1.75;
+char initiale = 'K';
+                </code></pre>
+            </div>
+            <p>Dans cet exemple, nous déclarons une variable <code>age</code> de type <code>int</code>, une variable <code>hauteur</code> de type <code>float</code>, et une variable <code>initiale</code> de type <code>char</code>.</p>
+        </section>
+
+        <section id="exemples">
+            <h2>Exemples pratiques</h2>
+            <p>Voici un exemple simple qui montre comment utiliser des variables dans un programme :</p>
+            <div class="example">
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 30;
+    float hauteur = 1.80;
+
+    printf("Vous avez %d ans et vous mesurez %.2f mètres.\n", age, hauteur);
+    return 0;
+}
+                </code></pre>
+            </div>
+            <p>Ce programme déclare deux variables, <code>age</code> et <code>hauteur</code>, et les affiche à l'écran.</p>
+            <a class="btn" href="quiz1.html">Faire un Quiz</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Jouer avec les variables en C : Découvrez la magie des données! Créé par Ousmane KONFE</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', () => {
+                    section.style.backgroundColor = '#E3F2FD';
+                    setTimeout(() => {
+                        section.style.backgroundColor = 'var(--card-bg)';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
